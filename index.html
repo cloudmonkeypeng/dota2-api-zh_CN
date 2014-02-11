@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="DOTA2 中文API 翻译自阿哈利姆魔法隐修议会">
+	<title>DOTA2 中文API</title>
+
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <style type="text/css">
+    body {
+    	padding-top: 50px;
+    	padding-bottom: 20px;
+	}
+	</style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <a href="#" class="navbar-brand">DOTA2中文API</a>
+	    </div>
+	    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+	      <ul class="nav navbar-nav">
+	        <li>
+	          <a href="#">起步</a>
+	        </li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li>
+	          <a href="#">关于</a>
+	        </li>
+	      </ul>
+	    </nav>
+	  </div>
+	</header>
+	
+	<div class="jumbotron">
+      <div class="container">
+        <h1>DOTA2中文API</h1>
+        <p>1.DOTA2内包含大量的专业术语，身为翻译者并不精通，可能会造成翻译错误，一切以原版为准。
+        	<br/>2.大多数函数未经测试，翻译表现与实际表现可能有出入。
+        	<br/>3.有一小部分函数并未翻译，欢迎补充。
+        </p> 
+      	<p><a href="#" class="btn btn-primary btn-lg" role="button">关于AMHC »</a></p>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+    	<div class="row">
+    		<div class="col-md-3">
+    			<div class="bs-sidebar hidden-print affix-top" role="complementary">
+    				<ul class="nav bs-sidenav">
+    					<li ><a href="#">粒子管理器</a></li>
+    					<li ><a href="#">游戏规则</a></li>
+    				</ul>
+    			</div>
+    		</div>
+
+    		<div class="col-md-9">
+    			<div class="bs-docs-section">
+    				<div class="page-header">
+    					<h1>粒子管理器</h1>
+    					<p>CScriptParticleManager<br/>!Used to create and manage particle effects</p>
+    				</div>
+    				<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        <tr>
+					    	<td class="td1">CreateParticle</td>
+					        <td>int CreateParticle( string particleName, int ParticleAttach, EntityowningEntity)</td>
+					        <td><div>效果：生成新的粒子效果<div/><div>传入参数<br>particleName：粒子名，ParticleAttach：粒子附着点，EntityowningEntity：附着实例<div/>返回值：<br>int类型： 粒子ID</td>
+					    </tr>
+					    <tr>
+					    	<td class="td1">CreateParticleForPlayer</td>
+					        <td>int CreateParticleForPlayer( string particleName, int ParticleAttach,Entity owningEntity, Player viewingPlayer)</td>
+					        <td>效果：创建针对特定玩家的粒子效果<br>传入参数：<br>particleName：粒子名，ParticleAttach：粒子附着点，owningEntity：附着实例,viewingPlayer：看到这个效果的玩家<br>返回值：<br>int类型：  粒子ID</td>
+					    </tr>
+					    <tr>
+					    	<td class="td1">SetParticleControl</td>
+					        <td>void SetParticleControl( int particleId, int controlIndex, vector controlData)</td>
+					        <td>效果：设置控制点数据以控制粒子效果<br>传入参数：<br>particleId：粒子ID，controlIndex：控制点索引，controlData：控制点数据<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">ReleaseParticleIndex</td>
+					        <td>void ReleaseParticleIndex( int particleId )</td>
+					        <td>效果：释放指定编号的粒子特效<br>传入参数：<br>particleId：粒子ID<br>返回值：无</td>
+					    </tr>
+				        </tbody>
+				    </table>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+    //to change
+	$(document).ready(function(){
+	    $("#myNav").affix({
+	        offset: { 
+	            top: 190 
+	        }
+	    });
+	});
+	</script>
+</body>
+</html>
