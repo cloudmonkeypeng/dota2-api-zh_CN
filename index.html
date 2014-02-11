@@ -12,10 +12,11 @@
 	<!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/docs.css">
+    
     <style type="text/css">
-    body {
-    	padding-top: 50px;
-    	padding-bottom: 20px;
+	table {
+		table-layout: fixed;
+		word-wrap: break-word;
 	}
 	</style>
 
@@ -28,75 +29,393 @@
     
 </head>
 <body>
-	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-	  <div class="container">
-	    <div class="navbar-header">
-	      <a href="#" class="navbar-brand">DOTA2中文API</a>
-	    </div>
-	    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-	      <ul class="nav navbar-nav">
-	        <li>
-	          <a href="#">起步</a>
-	        </li>
-	      </ul>
-	      <ul class="nav navbar-nav navbar-right">
-	        <li>
-	          <a href="#">关于</a>
-	        </li>
-	      </ul>
-	    </nav>
-	  </div>
-	</header>
 	
-	<div class="jumbotron">
+    <header class="navbar navbar-inverse navbar-static-top" role="banner">
+    	<div class="container">
+    		<div class="navbar-header">
+    			<a href="#" class="navbar-brand">DOTA2中文API</a>
+    		</div>
+	    	<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li>
+		          <a href="#">关于</a>
+		        </li>
+		      </ul>
+		    </nav>
+		</div>
+	</header>
+
+	<div class="bs-header" id="content">
       <div class="container">
-        <h1>DOTA2中文API</h1>
-        <p>1.DOTA2内包含大量的专业术语，身为翻译者并不精通，可能会造成翻译错误，一切以原版为准。
-        	<br/>2.大多数函数未经测试，翻译表现与实际表现可能有出入。
-        	<br/>3.有一小部分函数并未翻译，欢迎补充。
-        </p> 
-      	<p><a href="#" class="btn btn-primary btn-lg" role="button">关于AMHC »</a></p>
+      <div class="row">
+      	<div class="col-sm-2 logo">
+          <a href=""><img alt="diagram x head" src="img/logo.png" itemprop="logo"></a>
+        </div>
+        <div class="col-sm-10">
+	        <h3>DOTA2中文API</h3>
+	        <p>1.DOTA2内包含大量的专业术语，身为翻译者并不精通，可能会造成翻译错误，一切以原版为准。
+	        	<br/>2.大多数函数未经测试，翻译表现与实际表现可能有出入。
+	        	<br/>3.有一小部分函数并未翻译，欢迎补充。
+	        </p> 
+         </div>
+      </div>
       </div>
     </div>
 
     <div class="container bs-docs-container">
     	<div class="row">
-    		<div class="col-md-3">
-    			<div class="bs-sidebar hidden-print affix-top" role="complementary">
+    		<div class="col-md-3">	
+    			<div class="bs-sidebar hidden-print affix-top" >
     				<ul class="nav bs-sidenav">
-    					<li ><a href="#">粒子管理器</a></li>
-    					<li ><a href="#">游戏规则</a></li>
+    					<li ><a href="#CScriptParticleManager">粒子管理器</a></li>
+    					<li ><a href="#CDOTAGamerules">游戏规则</a></li>
+    					<li ><a href="#CEntities">实体双向列表</a></li>
+    					<li ><a href="#CScriptHeroList">英雄列表</a></li>
+    					<li ><a href="#Convars">控制台变量</a></li>
     				</ul>
     			</div>
     		</div>
 
     		<div class="col-md-9">
-    			<div class="bs-docs-section">
+    			<div class="bs-docs-section" id="CScriptParticleManager">
     				<div class="page-header">
     					<h1>粒子管理器</h1>
-    					<p>CScriptParticleManager<br/>!Used to create and manage particle effects</p>
+    					<h5>CScriptParticleManager</h5>
+    					<p>!Used to create and manage particle effects</p>
     				</div>
     				<table class="table table-striped table-bordered table-condensed">
 				        <tbody>
 				        <tr>
-					    	<td class="td1">CreateParticle</td>
+					    	<td>CreateParticle</td>
 					        <td>int CreateParticle( string particleName, int ParticleAttach, EntityowningEntity)</td>
 					        <td><div>效果：生成新的粒子效果<div/><div>传入参数<br>particleName：粒子名，ParticleAttach：粒子附着点，EntityowningEntity：附着实例<div/>返回值：<br>int类型： 粒子ID</td>
 					    </tr>
 					    <tr>
-					    	<td class="td1">CreateParticleForPlayer</td>
+					    	<td>CreateParticleForPlayer</td>
 					        <td>int CreateParticleForPlayer( string particleName, int ParticleAttach,Entity owningEntity, Player viewingPlayer)</td>
 					        <td>效果：创建针对特定玩家的粒子效果<br>传入参数：<br>particleName：粒子名，ParticleAttach：粒子附着点，owningEntity：附着实例,viewingPlayer：看到这个效果的玩家<br>返回值：<br>int类型：  粒子ID</td>
 					    </tr>
 					    <tr>
-					    	<td class="td1">SetParticleControl</td>
+					    	<td>SetParticleControl</td>
 					        <td>void SetParticleControl( int particleId, int controlIndex, vector controlData)</td>
 					        <td>效果：设置控制点数据以控制粒子效果<br>传入参数：<br>particleId：粒子ID，controlIndex：控制点索引，controlData：控制点数据<br>返回值：无</td>
 					    </tr>
 					    <tr>
-					        <td class="td1">ReleaseParticleIndex</td>
+					        <td>ReleaseParticleIndex</td>
 					        <td>void ReleaseParticleIndex( int particleId )</td>
 					        <td>效果：释放指定编号的粒子特效<br>传入参数：<br>particleId：粒子ID<br>返回值：无</td>
+					    </tr>
+				        </tbody>
+				    </table>
+    			</div>
+
+    			<div class="bs-docs-section" id="CDOTAGamerules">
+    				<div class="page-header">
+    					<h1 >游戏规则</h1>
+    					<h5>CDOTAGamerules</h5>
+    					<p>!DOTA GameRules</p>
+    				</div>
+    				<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        	<tr>
+					        <td >State_Get</td>
+					        <td>GameState State_Get()</td>
+					        <td>效果：获得当前规则的状态<br>传入参数：无<br>返回值：<br>GameState： 规则状态</td>
+					    </tr>
+					    <tr>
+					    	<td >GetGameTime</td>
+					        <td>float GetGameTime()</td>
+					         <td>效果：获取调用时候的游戏时间<br>传入参数：无<br>返回值：<br>float类型：  从地图运行起逝去的秒数</td>
+					    </tr>
+					    <tr>
+					    	<td >GetDifficulty</td>
+					        <td>int GetDifficulty()</td>
+					        <td>效果：获得自定游戏模式的难度<br>传入参数：无<br>返回值：<br>int类型：  自定游戏模式的难度</td>
+					    </tr>
+					     <tr>
+					        <td >Defeated</td>
+					        <td>void Defeated()</td>
+					        <td>效果：拆毁遗迹（游戏失败）<br>传入参数：无<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >ResetDefeated</td>
+					        <td>void ResetDefeated()</td>
+					        <td>效果：拆毁遗迹后重新开始<br>传入参数：无<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetGameWinner</td>
+					        <td>void SetGameWinner(int team)</td>
+					        <td>效果：使一个特定队伍胜利<br>传入参数：<br>team：队伍<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >MakeTeamLose</td>
+					        <td>void MakeTeamLose(int team)</td>
+					        <td>效果：使一个特定队伍失败<br>传入参数：<br>team：队伍<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >GetDroppedItem</td>
+					        <td>Item GetDroppedItem( int dropIndex)</td>
+					        <td>效果：取得指定顺序的掉落物品<br>传入参数：<br>dropIndex：掉落物品的索引<br>返回值：<br/>Item：掉落物品</td>
+					    </tr>
+					    <tr>
+					        <td >NumDroppedItems</td>
+					        <td>int NumDroppedItems()</td>
+					        <td>效果：取得正在地面上掉落物品的数量<br>传入参数：<br>dropIndex：掉落物品的索引<br>返回值：<br/>int类型：正在地面上掉落物品的数量</td>
+					    </tr>
+					    <tr>
+					        <td >SendCustomMessage</td>
+					        <td>void SendCustomMessage( string stringText, int, int )</td>
+					        <td>效果：向某个队伍发送一个字符串（后两个参数未知，待定）<br>传入参数：<br>stringText：发送的文本信息<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetHeroRespawnEnabled</td>
+					        <td>void SetHeroRespawnEnabled( bool canRespawn )</td>
+					        <td>效果：设置控制正常dota英雄重生规则是否生效<br>传入参数：<br>canRespawn：是否可以重生（传入true或false）<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >Playtesting_UpdateCustomKeyValues</td>
+					        <td>void Playtesting_UpdateCustomKeyValues()</td>
+					        <td>效果：将磁盘中最新的自定义英雄，单位和技能关键值读入内存（应该是初始化读入英雄数据，类似DOTA1中的召唤师技能预读）<br>传入参数：无<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >ResetToHeroSelection</td>
+					        <td>void ResetToHeroSelection()</td>
+					        <td>效果：在英雄选择时重新开始<br>传入参数：无<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetTreeRegrowTime</td>
+					        <td>void SetTreeRegrowTime( float seconds)</td>
+					        <td>效果：以秒为单位设定树的重生时间<br>传入参数：<br>seconds：秒数<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetHeroSelectionTime</td>
+					        <td>void SetHeroSelectionTime( float seconds)</td>
+					        <td>效果：设定玩家选择英雄的时间<br>传入参数：<br>seconds：秒数<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetPreGameTime</td>
+					        <td>void SetPreGameTime( float seconds)</td>
+					        <td>效果：设定玩家再选择英雄之后和游戏开始前之间的时间<br>传入参数：<br>seconds：秒数<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetPostGameTime</td>
+					        <td>void SetPostGameTime( float seconds)</td>
+					        <td>效果：设定游戏结束后到服务器断开连接前的时间<br>传入参数：<br>seconds：秒数<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetRuneSpawnTime</td>
+					        <td>void SetRuneSpawnTime( float seconds)</td>
+					        <td>效果：设置符文刷新时间<br>传入参数：<br>seconds：秒数<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetSameHeroSelectionEnabled</td>
+					        <td>void SetSameHeroSelectionEnabled( bool enabled)</td>
+					        <td>效果：当设置为真时，玩家能够重新选择同样的英雄<br>传入参数：<br>enabled：布尔值<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetUseUniversalShopMode</td>
+					        <td>void SetUseUniversalShopMode( bool enabled)</td>
+					        <td>效果：当设置为真时，在商店范围内的所有物品都可购买<br>传入参数：<br>enabled：布尔值<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetOverlayHealthBarUnit</td>
+					        <td>void SetOverlayHealthBarUnit( Unit unit, int style)</td>
+					        <td>效果：设置生命槽上显示单位的生命值<br>传入参数：<br>Unitunit：单位实体，style：单位类型<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetCreepMinimapIconScale</td>
+					        <td>void SetCreepMinimapIconScale( float creepScale)</td>
+					        <td>效果：设置普通单位图标在小地图上的大小<br>传入参数：<br>creepScale：单位大小值<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetRuneMinimapIconScale</td>
+					        <td>void SetRuneMinimapIconScale( float runeScale)</td>
+					        <td>效果：设置符文图标在小地图上的大小<br>传入参数：<br>runeScale：符文大小值<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetSafeToLeave</td>
+					        <td>void SetSafeToLeave( bool safeToLeave)</td>
+					        <td>效果：标记此游戏可以安全退出<br>传入参数：<br>safeToLeave：是否可以安全退出（true或false）<br>返回值：无</td>
+					    </tr>
+				        </tbody>
+				    </table>
+    			</div>
+
+    			<div class="bs-docs-section" id="CEntities">
+    				<div class="page-header">
+    					<h1 >实体双向列表</h1>
+    					<h5>CEntities</h5>
+    					<p>!The global list of entities</p>
+    				</div>
+    				<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        <tr>
+					        <td >First</td>
+					        <td>Entity First()</td>
+					        <td>效果：从实体双向链表之上开始迭代(获取链表头结点)<br>传入参数：无<br>返回值：<br>Entity：链表内的实体</td>
+					    </tr>
+					    <tr>
+					    	<td >Next</td>
+					        <td>Entity Next( Entity startFrom)</td>
+					         <td>效果：参照前面获取的实体继续迭代双向链表<br>传入参数：无<br>返回值：<br>Entity：链表内的下一个实体</td>
+					    </tr>
+					    <tr>
+					    	<td >CreateByClassname</td>
+					        <td>Entity CreateByClassname( string className)</td>
+					        <td>效果：用类名称来创建实体<br>传入参数：<br>className:实体名称<br/>返回值：<br>Entity：创建的实体</td>
+					    </tr>
+					     <tr>
+					        <td >FindByName</td>
+					        <td>Entity FindByName( Entity startFrom, string entName)</td>
+					        <td>效果：通过类名称来查找实体。（如果startFrom是空则返回查找到的第一个，如果不为空则返回startFrom后的一个）<br>传入参数：<br>startFrom:开始查找的实体，entName：查找到这个实体名称结束<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >FindAllByName</td>
+					        <td>table FindAllByName( string name)</td>
+					        <td>效果：通过名字查找实体；返回一个所有找到的数列<br>传入参数：<br/>name:实体名称<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >FindInSphere</td>
+					        <td>Entity FindInSphere( Entity startFrom, vector origin, float radius)</td>
+					        <td>效果：在有效范围内查找实体（如果startFrom是空则返回查找到的第一个，如果不为空则返回startFrom后的一个）<br>传入参数：
+					        <br>startFrom：开始查找的实体，origin：原点矢量，radius：范围值<br>返回值：<br>Entity:查找到的实体</td>
+					    </tr>
+					    <tr>
+					        <td >FindAllInSphere</td>
+					        <td>table FindAllInSphere( vector origin, float radius)</td>
+					        <td>效果：在有效范围内查找实体<br>传入参数：<br>origin：原点矢量，radius：有效范围<br>返回值：包含有效范围内所有实体的表</td>
+					    </tr>
+					    <tr>
+					        <td >FindByTarget</td>
+					        <td>Entity FindByTarget( Entity startFrom, string targetName)</td>
+					        <td>通过目标名称查找实体（如果startFrom是空则返回查找到的第一个，如果不为空则返回startFrom后的一个）<br>传入参数：
+					        <br>startFrom：开始查找的实体，targetName：开始查找的实体名称<br>返回值：<br/>Entity：实体</td>
+					    </tr>
+					    <tr>
+					        <td >FindAllByTarget</td>
+					        <td>table FindAllByTarget(string targetName)</td>
+					        <td>效果：通过目标名称查找实体<br>传入参数：<br>targetName：目标名称<br>返回值：<br/>table：查找到包含该名称的所有实体的表</td>
+					    </tr>
+					    <tr>
+					        <td >FindByModel</td>
+					        <td>Entity FindByModel( Entity startFrom, string modelName)</td>
+					        <td>效果：通过模型名称查找实体。（如果startFrom是空则返回查找到的第一个，如果不为空则返回startFrom后的一个）<br>传入参数：<br>startFrom：开始查找的实体，modelName：模型名<br>返回值：<br/>Entity：模型实体</td>
+					    </tr>
+					    <tr>
+					        <td >FindAllByModel</td>
+					        <td>table FindAllByModel( string modelName)</td>
+					        <td>效果：通过模型名称来查找实体<br>传入参数：<br>modelName：模型名称<br>返回值：<br/>table:包含该模型名所有模型实体的表</td>
+					    </tr>
+					    <tr>
+					        <td >FindByNameNearest</td>
+					        <td>Entity FindByNameNearest( string entityName, vector origin, float radius )</td>
+					        <td>效果：查找最接近一个指针的实体<br/>传入参数：<br/>entityName:实体名称，origin：原点矢量，radius：有效范围<br/>返回值：<br/>Entity:第一个查找到的实体</td>
+					    </tr>
+					    <tr>
+					        <td >FindByNameWithin</td>
+					        <td>Entity FindByNameWithin( Entity startFrom, string entityName, vector origin, float radius)</td>
+					        <td>效果：在有效范围内查找实体。（如果startFrom是空则返回查找到的第一个，如果不为空则返回startFrom后的一个）<br>传入参数：<br>
+					        startFrom：开始查找的实体，entityName：实体名称<br/>返回值：<br/>Entity：有效范围内第一个查找到的实体</td>
+					    </tr>
+					    <tr>
+					        <td >FindAllByNameWithin</td>
+					        <td>table FindAllByNameWithin( string entityName, vector origin, float radius)</td>
+					        <td>效果：在有效范围内查找实体<br>传入参数：<br/>entityName:实体名称，origin：原点矢量，radius：有效范围<br/>返回值：<br>table：包含有效范围内查找到的所有实体的表</td>
+					    </tr>
+					    <tr>
+					        <td >FindByClassnameNearest</td>
+					        <td>Entity FindByClassnameNearest( string className, vector origin, float radius)</td>
+					        <td>效果：通过最接近一个指针的类名来查找实体<br>传入参数：<br/>className:类名，origin：原点矢量，radius：有效范围<br/>返回值：<br>Entity：查找到的实体</td>
+					    </tr>
+					    <tr>
+					        <td >SetPreGameTime</td>
+					        <td>Entity FindByClassnameWithin( Entity startFrom, string className, vector origin, float radius)</td>
+					        <td>效果：在有效范围内查找实体（如果startFrom是空则返回查找到的第一个，如果不为空则返回startFrom后的一个）
+					        <br>传入参数：</br>startFrom：开始查找的实体，className：类名，，origin：原点矢量，radius：有效范围</br>返回值：</br>Entity：查找到的实体</td>
+					    </tr>
+					    <tr>
+					        <td >FindAllByClassnameWithin</td>
+					        <td>table FindAllByClassnameWithin( string className, vector origin, float radius)</td>
+					        <td>效果：在有效范围内查找实体<br>传入参数：<br>startFrom：开始查找的实体，className：类名，，origin：原点矢量，radius：有效范围</br>返回值：</br>table：包含所有查找到的实体的表</td>
+					    </tr>
+				        </tbody>
+				    </table>
+    			</div>
+
+    			<div class="bs-docs-section" id="CScriptHeroList">
+    				<div class="page-header">
+    					<h1 >英雄列表</h1>
+    					<h5>CScriptHeroList</h5>
+    					<p>!The global list of heroes</p>
+    				</div>
+    				<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        <tr>
+					        <td >GetHero</td>
+					        <td>Hero GetHero( int heroId)</td>
+					        <td>效果：获得在英雄列表中的第N个英雄<br>传入参数：<br>heroId:英雄ID<br>返回值：<br>Hero：英雄实体</td>
+					    </tr>
+					    <tr>
+					    	<td>GetHeroCount</td>
+					        <td>int GetHeroCount()</td>
+					         <td>效果：返回世界中英雄的数量<br>传入参数：无<br>返回值：<br>int类型：英雄个数</td>
+					    </tr>
+					    <tr>
+					    	<td>GetAllHeroes</td>
+					        <td>table GetAllHeroes()</td>
+					        <td>效果：返回所有在世界中的英雄<br>传入参数：无<br>返回值：<br>table：包含所有英雄的实体的表</td>
+					    </tr>
+				        </tbody>
+				    </table>
+    			</div>
+
+    			<div class="bs-docs-section" id="Convars">
+    				<div class="page-header">
+    					<h1 >控制台变量</h1>
+    					<h5>Convars</h5>
+    					<p>!Access to convar functions</p>
+    				</div>
+    				<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        <tr>
+					        <td >GetFloat</td>
+					        <td>float GetFloat( string varName)</td>
+					        <td>效果：以浮点类型返回控制台变量<br>传入参数：<br>varName:控制台变量名<br>返回值：<br>float类型：以浮点类型返回控制台变量</td>
+					    </tr>
+					    <tr>
+					    	<td >SetFloat</td>
+					        <td>void SetFloat( string varName, float value)</td>
+					         <td>效果：如果存在的话，设定指定控制台变量为浮点类型<br>传入参数：<br>varName:控制台变量名，value：改变量的float值<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					    	<td >GetStr</td>
+					        <td>string GetStr( string varName)</td>
+					        <td>效果：以字符串返回控制台变量，如果没有此控制台变量则返回为空<br>传入参数：<br>varName:控制台变量名<br>返回值：<br>字符串类型：以字符串形式返回控制台变量</td>
+					    </tr>
+					    <tr>
+					        <td >GetBool</td>
+					        <td>bool GetBool( string varName)</td>
+					        <td>效果：以布尔类型返回控制台变量，如果没有此控制台变量则返回为空<br>传入参数：<br>varName:控制台变量名<br>返回值：<br>字符串类型：以布尔类型形式返回控制台变量</td>
+					    </tr>
+					    <tr>
+					        <td >SetBool</td>
+					        <td>void SetBool( string varName, bool value)</td>
+					        <td>效果：如果存在的话，设一个控制台变量为布尔类型<br>传入参数：<br>varName:控制台变量名，value：保存的布尔值<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >RegisterCommand</td>
+					        <td>void RegisterCommand( string varName, function func, string helpText, int flags)</td>
+					        <td>效果：注册一个控制台命令<br>传入参数：<br>varName:控制台变量名，func：要注册的函数，helpText：函数说明文本，flags：标志（作用未知）<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >RegisterConvar</td>
+					        <td>void RegisterConvar( string name, string default, string helpText, int flags)</td>
+					        <td>效果：注册一个新的控制台命令<br>传入参数：<br>varName:控制台名，default：默认值（作用不明，猜测为默认路径？），helpText：说明文本，flags：标志（作用未知）<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >GetCommandClient</td>
+					        <td>Player GetCommandClient()</td>
+					        <td>效果：返回使用控制台命令的玩家<br>传入参数：无<br>返回值：<br>Player：使用控制台的玩家实体</td>
 					    </tr>
 				        </tbody>
 				    </table>
@@ -108,17 +427,6 @@
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
-
-    <script type="text/javascript">
-    //to change
-	$(document).ready(function(){
-	    $("#myNav").affix({
-	        offset: { 
-	            top: 190 
-	        }
-	    });
-	});
-	</script>
+    <script src="js/application.js"></script>
 </body>
 </html>
