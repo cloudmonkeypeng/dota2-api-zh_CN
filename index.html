@@ -18,6 +18,10 @@
 		table-layout: fixed;
 		word-wrap: break-word;
 	}
+
+	.bs-sidenav li a{
+		font-size: 8px;
+	}
 	</style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,7 +56,7 @@
           <a href=""><img alt="diagram x head" src="img/logo.png" itemprop="logo"></a>
         </div>
         <div class="col-sm-10">
-	        <h3>DOTA2中文API</h3>
+	        <h2>DOTA2中文API</h2>
 	        <p>1.DOTA2内包含大量的专业术语，身为翻译者并不精通，可能会造成翻译错误，一切以原版为准。
 	        	<br/>2.大多数函数未经测试，翻译表现与实际表现可能有出入。
 	        	<br/>3.有一小部分函数并未翻译，欢迎补充。
@@ -72,6 +76,25 @@
     					<li ><a href="#CEntities">实体双向列表</a></li>
     					<li ><a href="#CScriptHeroList">英雄列表</a></li>
     					<li ><a href="#Convars">控制台变量</a></li>
+    					<li ><a href="#CBaseEntity">公共实体</a></li>
+    					<li ><a href="#CDOTA_PlayerResource">玩家数据接口</a></li>
+    					<li ><a href="#CDOTABaseGameMode">基本游戏模式类</a></li>
+    					<li><a href="#CBaseAnimating">动画模型</a></li>
+    					<li><a href="#CBaseFLex">可伸缩特性动画</a></li>
+    					<li><a href="#CDOTA_BaseNPC">NPC单位基类</a></li>
+    					<li><a href="#CDOTA_BaseNPC_Building">NPC单位实体类-建筑</a></li>
+    					<li><a href="#CDOTA_BaseNPC_Creature">NPC单位实体类-普通单位</a></li>
+    					<li><a href="#CDOTA_BaseNPC_Hero">NPC单位实体类-英雄</a></li>
+    					<li><a href="#CDOTABaseAbility">技能基类</a></li>	
+    					<li><a href="#CDotaQuestBase">任务基类</a></li>
+    					<li><a href="#CDOTA_Item">物品类</a></li>
+    					<li><a href="#CDOTA_Item_Physical">地图物品类</a></li>
+    					<li><a href="#CDOTAPlayer">玩家类</a></li>
+    					<li><a href="#CTriggerCamera">摄像机类</a></li>
+    					<li><a href="#CSceneEntity">场景类</a></li>
+    					<li><a href="#CEnvProjectedTexture">动态阴影光照</a></li>
+    					<li><a href="#CEnvEntityMaker">环境影响者类</a></li>
+    					<li><a href="#OtherFunctions">其他函数</a></li>
     				</ul>
     			</div>
     		</div>
@@ -79,7 +102,7 @@
     		<div class="col-md-9">
     			<div class="bs-docs-section" id="CScriptParticleManager">
     				<div class="page-header">
-    					<h1>粒子管理器</h1>
+    					<h2>粒子管理器</h2>
     					<h5>CScriptParticleManager</h5>
     					<p>!Used to create and manage particle effects</p>
     				</div>
@@ -111,7 +134,7 @@
 
     			<div class="bs-docs-section" id="CDOTAGamerules">
     				<div class="page-header">
-    					<h1 >游戏规则</h1>
+    					<h2 >游戏规则</h2>
     					<h5>CDOTAGamerules</h5>
     					<p>!DOTA GameRules</p>
     				</div>
@@ -243,7 +266,7 @@
 
     			<div class="bs-docs-section" id="CEntities">
     				<div class="page-header">
-    					<h1 >实体双向列表</h1>
+    					<h2 >实体双向列表</h2>
     					<h5>CEntities</h5>
     					<p>!The global list of entities</p>
     				</div>
@@ -344,7 +367,7 @@
 
     			<div class="bs-docs-section" id="CScriptHeroList">
     				<div class="page-header">
-    					<h1 >英雄列表</h1>
+    					<h2 >英雄列表</h2>
     					<h5>CScriptHeroList</h5>
     					<p>!The global list of heroes</p>
     				</div>
@@ -371,7 +394,7 @@
 
     			<div class="bs-docs-section" id="Convars">
     				<div class="page-header">
-    					<h1 >控制台变量</h1>
+    					<h2 >控制台变量</h2>
     					<h5>Convars</h5>
     					<p>!Access to convar functions</p>
     				</div>
@@ -420,6 +443,2154 @@
 				        </tbody>
 				    </table>
     			</div>
+
+    			<div class="bs-docs-section" id="CBaseEntity">
+    				<div class="page-header">
+    					<h2 >公共实体</h2>
+    					<h5>CBaseEntity</h5>
+    					<p>Root class of all server-side entities</p>
+    				</div>
+    				<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        	<tr>
+						        <td >ConnectOutput</td>
+						        <td>void ConnectOutput( string, string )</td>
+						        <td>效果：增加一个输入/输出连接，以便在特定的时候指定的函数<br>传入参数：<br>等待试用（猜测：第一个为IO连接名，第二个为函数名）<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						    	<td >DisconnectOutput</td>
+						        <td>void DisconnectOutput( string, string )</td>
+						         <td>效果：从一个输入/输出借鉴中移除一个代码函数<br>传入参数：<br>等待试用（猜测：第一个为IO连接名，第二个为函数名）<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						    	<td >GetHealth</td>
+						        <td>int GetHealth()</td>
+						        <td>效果：获得生命值<br>传入参数：无<br>返回值：<br>int类型：当前生命值</td>
+						    </tr>
+						    <tr>
+						        <td >SetHealth</td>
+						        <td>void SetHealth( int hp)</td>
+						        <td>效果：设置生命值<br>传入参数：<br>hp:生命值<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetMaxHealth</td>
+						        <td>int GetMaxHealth()</td>
+						        <td>效果：获得最大生命值<br>传入参数：无<br>返回值：<br>int类型：最大生命值</td>
+						    </tr>
+						    <tr>
+						        <td >SetMaxHealth</td>
+						        <td>void SetMaxHealth( int hp)</td>
+						        <td>效果：设置最大生命值<br>传入参数：<br>hp:最大生命值<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >IsAlive</td>
+						        <td>bool IsAlive()</td>
+						        <td>效果：是否存活<br>传入参数：无<br>返回值：</br>布尔类型：true 或 false</td>
+						    </tr>
+						    <tr>
+						        <td >Remove</td>
+						        <td>void Remove()</td>
+						        <td>效果：移除(在实体内调用该方法删除该实体)<br>传入参数：无<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetModel</td>
+						        <td>void SetModel( string modelName)</td>
+						        <td>效果：根据模型名设置模型(在实体内调用该方法设置该实体的模型)<br>传入参数：<br>modelName:模型名<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetModelName</td>
+						        <td>string GetModelName()</td>
+						        <td>效果：获得模型名(在实体内调用该方法获得该实体模型的名字)<br>传入参数：无<br>返回值：<br>字符串:模型名</td>
+						    </tr>
+						    <tr>
+						        <td >EmitSound</td>
+						        <td>void EmitSound( string soundName)</td>
+						        <td>效果：播放声音（调用该方法播放声音）<br>传入参数：<br>soundName:声音文件的名字<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >EmitSoundParams</td>
+						        <td>void EmitSoundParams( string soundName, int pitch, float volume)</td>
+						        <td>效果：播放并修改声音（可以把这个方法当成柯南的蝴蝶结）<br>传入参数：<br>soundName:必须大于0，声音文件的名字,pitch:必须大于0，音阶（这个比较专业个人理解可能有误），volume：音量大小<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >StopSound</td>
+						        <td>void StopSound( string soundName)</td>
+						        <td>效果：停止一个实体发出的声音<br>传入参数：无<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >PrecacheSoundScript</td>
+						        <td>void PrecacheSoundScript( string soundName)</td>
+						        <td>效果：为接下来的播放先缓存一个声音<br>传入参数：<br>soundName：声音名称<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetSoundDuration</td>
+						        <td>float GetSoundDuration( string soundName, string actorModelname)</td>
+						        <td>效果：返回声音播放时间（需要声音名、或者角色模型名称（可选）<br>传入参数：<br>soundName：声音名称，actorModelname：角色模型名<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetClassname</td>
+						        <td>string GetClassname()</td>
+						        <td>效果：获得当前实体的类名<br>传入参数：无<br>返回值：<br>字符串类型：类名</td>
+						    </tr>
+						    <tr>
+						        <td >GetName</td>
+						        <td>string GetName()</td>
+						        <td>效果：坐等测试......<br>传入参数：无<br>返回值：<br>字符串类型：名字</td>
+						    </tr>
+						    <tr>
+						        <td >GetName</td>
+						        <td>string GetName()</td>
+						        <td>效果：获取被移除的（唯一，相当于WE编辑器中的最后一个被移除）装饰物实体的名字<br>传入参数：无<br>返回值：<br>字符串类型：装饰品名称</td>
+						    </tr>
+						    <tr>
+						        <td >GetOrigin</td>
+						        <td>vector GetOrigin()</td>
+						        <td>效果：实体在链表中的矢量<br>传入参数：无<br>返回值：<br>vector：链表中的矢量</td>
+						    </tr>
+						    <tr>
+						        <td >SetAbsOrigin</td>
+						        <td>void SetAbsOrigin( vector vec)</td>
+						        <td>效果：设置起始点<br>传入参数：<br>vec：链表中的矢量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetOrigin</td>
+						        <td>void SetOrigin( vector vec)</td>
+						        <td>效果：设置矢量（不推荐新手使用）<br>传入参数：<br>vec：矢量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetForwardVector</td>
+						        <td>vector GetForwardVector()</td>
+						        <td>效果：获得实体的正前方矢量<br>传入参数：无<br>返回值：<br>vec：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >GetLeftVector</td>
+						        <td>vector GetLeftVector()</td>
+						        <td>效果：获得实体的左方矢量<br>传入参数：无<br>返回值：<br>vec：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >GetUpVector</td>
+						        <td>vector GetUpVector()</td>
+						        <td>效果：获得实体的上方矢量<br>传入参数：无<br>返回值：<br>vec：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >SetForwardVector</td>
+						        <td>void SetForwardVector( vector forward)</td>
+						        <td>效果：设置实体的方向来决定正前方的矢量<br>传入参数：<br>vec：链表中的矢量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetVelocity</td>
+						        <td>vector GetVelocity()</td>
+						        <td>效果：获得单位的速率矢量<br>传入参数：无<br>返回值：<br>vec：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >SetVelocity</td>
+						        <td>void SetVelocity( vector velocity)</td>
+						        <td>效果：设置单位的速率矢量<br>传入参数：<br>vec：链表中的矢量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetAngularVelocity</td>
+						        <td>void SetAngularVelocity( float pitch, float yaw, float roll)</td>
+						        <td>效果：设置单位的速率矢量<br>传入参数：<br>pitch：y轴值，yaw：z轴值，roll：x轴值<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetAngularVelocity</td>
+						        <td>vector GetAngularVelocity()</td>
+						        <td>效果：获得单位的速率矢量<br>传入参数：无<br>返回值：<br>vector：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >GetCenter</td>
+						        <td>vector GetCenter()</td>
+						        <td>效果：获得模型中心的矢量的绝对坐标<br>传入参数：无<br>返回值：<br>vector：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >EyePosition</td>
+						        <td>vector EyePosition()</td>
+						        <td>效果：取得眼部位置的矢量的绝对坐标<br>传入参数：无<br>返回值：<br>vector：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >SetAngles</td>
+						        <td>void SetAngles( float pitch, float yaw, float roll)</td>
+						        <td>效果：设定实体的x、y和z坐标值<br>传入参数：pitch：y轴值，yaw：z轴值，roll：x轴值<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetAngles</td>
+						        <td>vector GetAngles()</td>
+						        <td>效果：获得实体的x、y和z坐标值<br>传入参数：无<br>返回值：<br>vector：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >SetSize</td>
+						        <td>void SetSize( vector, vector )</td>
+						        <td>效果：未知作用，等待测试<br>传入参数：<br>参数为矢量，来源作用未知<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetBoundingMins</td>
+						        <td>vector GetBoundingMins()</td>
+						        <td>效果：获得以物体为中心的最小矢量<br>传入参数：无<br>返回值：<br>vector：矢量</td>
+						    </tr>
+						    <tr>
+						        <td >GetBoundingMaxs</td>
+						        <td>vector GetBoundingMaxs()</td>
+						        <td>效果：获得以物体为中心的最大矢量<br>传入参数：无<br>返回值：<br>vector：矢量</td>
+						    </tr>
+						     <tr>
+						        <td >Destroy</td>
+						        <td>void Destroy()</td>
+						        <td>效果：销毁（WE里俗称排泄，删掉这个实体）<br>传入参数：无<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetOwner</td>
+						        <td>void SetOwner( Entity parent)</td>
+						        <td>效果：设置实体的父级。这样并不会使玩家控制实体<br>传入参数：<br>parent：父类实体<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetTeam</td>
+						        <td>int GetTeam()</td>
+						        <td>效果：获得该实体所在组<br>传入参数：无<br>返回值：<br>int类型：该实体所在组的值</td>
+						    </tr>
+						    <tr>
+						        <td >SetTeam</td>
+						        <td> void SetTeam( int team)</td>
+						        <td>效果：设置该实体所在组<br>传入参数：<br>team：该实体所在组的值<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetMoveParent</td>
+						        <td> Entity GetMoveParent()</td>
+						        <td>效果：在数据结构中，检索到的实体的父节点<br>传入参数：<br>team：该实体所在组的值<br>返回值：<br>Entity：该实体的父级实体</td>
+						    </tr>
+						    <tr>
+						        <td >GetRootMoveParent</td>
+						        <td> GetRootMoveParent()</td>
+						        <td>效果：在数据结构中的根节点<br>传入参数：无<br>返回值：<br>Entity：该实体的父级实体</td>
+						    </tr>
+						    <tr>
+						        <td >FirstMoveChild</td>
+						        <td> Entity FirstMoveChild() </td>
+						        <td>效果：在数据结构中，该节点的第一个子节点<br>传入参数：无<br>返回值：<br>Entity：该实体的第一个子节点实体</td>
+						    </tr>
+						    <tr>
+						        <td >NextMovePeer</td>
+						        <td> Entity NextMovePeer() </td>
+						        <td>效果：在数据结构中，该节点的下一个子节点（在遍历中使用，用于第一子节点后）<br>传入参数：无<br>返回值：<br>Entity：该实体的下一个子节点实体</td>
+						    </tr>
+						    <tr>
+						        <td >__KeyValueFromString</td>
+						        <td> bool __KeyValueFromString( string, string ) </td>
+						        <td>效果：等待测试（猜测为在第一个变量中,查找是否有第二变量的关键字）<br>传入参数：第一个String被查找值，第二哥String搜索值<br>返回值：<br>布尔类型：是否包含</td>
+						    </tr>
+						    <tr>
+						        <td >__KeyValueFromFloat</td>
+						        <td> bool __KeyValueFromFloat( string, float ) </td>
+						        <td>效果：等待测试（猜测为在第一个变量中,查找是否有第二变量的关键字）<br>传入参数：第一个String被查找值，第二哥float搜索值<br>返回值：<br>布尔类型：是否包含</td>
+						    </tr>
+						    <tr>
+						        <td >__KeyValueFromInt</td>
+						        <td> bool __KeyValueFromInt( string, int ) </td>
+						        <td>效果：等待测试（猜测为在第一个变量中,查找是否有第二变量的关键字）<br>传入参数：第一个String被查找值，第二哥int搜索值<br>返回值：<br>布尔类型：是否包含</td>
+						    </tr>
+						    <tr>
+						        <td >__KeyValueFromVector</td>
+						        <td> bool __KeyValueFromVector( string, vector ) </td>
+						        <td>效果：等待测试（猜测为在第一个变量中,查找是否有第二变量的关键字）<br>传入参数：第一个String被查找值，第二哥vector搜索值<br>返回值：<br>布尔类型：是否包含</td>
+						    </tr>
+						    <tr>
+						        <td >Trigger</td>
+						        <td> void Trigger() </td>
+						        <td>效果：响应该实体的触发事件（被触发时调用）<br>传入参数：无<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >ValidateScriptScope</td>
+						        <td> bool ValidateScriptScope() </td>
+						        <td>效果：确认实体的在该范围内有效<br>传入参数：无<br>返回值：<br>布尔类型：是否有效</td>
+						    </tr>
+						    <tr>
+						        <td >GetScriptScope</td>
+						        <td> hscript GetScriptScope() </td>
+						        <td>效果：获取有效脚本<br>传入参数：无<br>返回值：<br>hscript：获得脚本</td>
+						    </tr>
+						    <tr>
+						        <td >GetScriptId</td>
+						        <td>string GetScriptId() </td>
+						        <td>效果：获得脚本的ID<br>传入参数：无<br>返回值：<br>string：脚本ID(注意是一个String类型的ID)</td>
+						    </tr>
+						    <tr>
+						        <td >GetOwner</td>
+						        <td>Entity GetOwner() </td>
+						        <td>效果：获得此实体的所有者<br>传入参数：无<br>返回值：<br>Entity：该实体的所有者实体</td>
+						    </tr>
+						    <tr>
+						        <td >entindex </td>
+						        <td>int entindex() </td>
+						        <td>效果：获得实体索引（未测试）<br>传入参数：无<br>返回值：<br>int：该实体的索引</td>
+						    </tr>
+				        </tbody>
+				    </table>
+    			</div>
+
+				<div class="bs-docs-section" id="CDOTA_PlayerResource">
+					<div class="page-header">
+						<h2 >玩家数据接口&nbsp;继承:公共实体</h2>
+						<h5>CDOTA_PlayerResource extends CBaseEntity</h5>
+						<p>Interface to player data</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        	<tr>
+						        <td >SetHasRepicked</td>
+						        <td>void SetHasRepicked( int playerId)</td>
+						        <td>效果：标记重新选择的玩家英雄<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						    	<td >HasRepicked</td>
+						        <td>bool HasRepicked( int playerId)</td>
+						         <td>效果：如果玩家重新选择了英雄，则返回真（注意重选的时候记得调用标记方法）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true或false  </td>
+						    </tr>
+						    <tr>
+						    	<td >SetHasRandomed</td>
+						        <td>void SetHasRandomed( int playerId)</td>
+						        <td>效果：标记随机选择的玩家英雄<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						     <tr>
+						        <td >HasRandomed</td>
+						        <td>bool HasRandomed( int playerId)</td>
+						        <td>效果：如果玩家随机选择了英雄，则返回真（注意重选的时候记得调用标记方法）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true或false </td>
+						    </tr>
+						    <tr>
+						        <td >IsValidTeamPlayerID</td>
+						        <td>bool IsValidTeamPlayerID( int playerId)</td>
+						        <td>效果：判断是否是有效的队伍<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true或false </td>
+						    </tr>
+						    <tr>
+						        <td >SetGameWinner</td>
+						        <td>bool IsValidTeamPlayer( int playerId)</td>
+						        <td>效果：判断玩家是否在有效的队伍内<br>playerId:玩家ID<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >IsValidPlayerID</td>
+						        <td>bool IsValidPlayerID( int playerId))</td>
+						        <td>效果：是否是有效的玩家ID<br>playerId:玩家ID<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >IsValidPlayer</td>
+						        <td>bool IsValidPlayer( int playerId))</td>
+						        <td>效果：是否是有效的玩家<br>playerId:玩家ID<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >GetLevel</td>
+						        <td>int GetLevel( int playerId)</td>
+						        <td>效果：获得等级<br>playerId:玩家ID<br>返回值：<br>int类型：玩家等级</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementKills</td>
+						        <td>void IncrementKills( int playerId, int kills)</td>
+						        <td>效果：增加玩家杀人数<br>传入参数：<br>playerId:玩家ID，kills:杀人数<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementAssists</td>
+						        <td>void IncrementAssists( int playerId)</td>
+						        <td>效果：增加玩家助攻数<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementDeaths</td>
+						        <td>void IncrementDeaths( int playerId)</td>
+						        <td>效果：增加玩家死亡数<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetKills</td>
+						        <td>int GetKills( int playerId)</td>
+						        <td>效果：获得玩家杀人数<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家杀人数</td>
+						    </tr>
+						    <tr>
+						        <td >GetAssists</td>
+						        <td>int GetAssists( int playerId)</td>
+						         <td>效果：获得玩家助攻数<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家助攻数</td>
+						    </tr>
+						    <tr>
+						        <td >GetDeaths</td>
+						        <td>int GetDeaths( int playerId)</td>
+						         <td>效果：获得玩家死亡数<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家死亡数</td>
+						    </tr>
+						    <tr>
+						        <td >GetStuns</td>
+						        <td>float GetStuns( int playerId)</td>
+						        <td>效果：获得玩家眩晕剩余时间<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>float类型：玩家眩晕剩余时间</td>
+						    </tr>
+						    <tr>
+						        <td >GetHealing</td>
+						        <td>float GetHealing( int playerId)</td>
+						        <td>效果：获得玩家剩余生命值<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>float类型：玩家剩余生命值</td>
+						    </tr>
+						    <tr>
+						        <td >GetTowerKills</td>
+						        <td>int GetTowerKills( int playerId)</td>
+						        <td>效果：获得玩家拆塔数量<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：获得玩家拆塔数量</td>
+						    </tr>
+						    <tr>
+						        <td >GetRoshanKills</td>
+						        <td>int GetRoshanKills( int playerId)</td>
+						        <td>效果：获得玩家Roshan击杀次数<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家Roshan击杀次数</td>
+						    </tr>
+						    <tr>
+						        <td >GetTeamKills</td>
+						        <td>int GetTeamKills( int playerId)</td>
+						        <td>效果：获得玩家队伍击杀次数（求测试，获得该玩家所在队伍的总体击杀数）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：获得玩家队伍击杀次数（求测试，获得该玩家所在队伍的总体击杀数）</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementStreak</td>
+						        <td>void IncrementStreak( int playerId)</td>
+						        <td>效果：增加该玩家连续击杀数<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >ClearStreak</td>
+						        <td>void ClearStreak( int playerId)</td>
+						        <td>效果：清除该玩家连续击杀数<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetStreak</td>
+						        <td>int ModifyGold( int playerId, int goldAmt, bool reliable, int )</td>
+						        <td>效果：修改玩家金钱<br>传入参数：<br>playerId:玩家ID，goldAmt：金钱数量，reliable：死亡是否掉落，最后一个参数未知<br>返回值：<br>int类型:未知作用，求测试（预测返回玩家金钱）</td>
+						    </tr>
+						    <tr>
+						        <td >SetGold</td>
+						        <td>void SetGold( int playerId, int goldAmt, bool reliable)</td>
+						        <td>效果：修改设置玩家金钱<br>playerId:玩家ID，goldAmt：金钱数量，reliable：死亡是否掉落<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SpendGold</td>
+						        <td>void SpendGold( int playerId, int amt, int )</td>
+						        <td>效果：设置玩家已经花费的金钱<br>传入参数：<br>playerId:玩家ID，amt：花费的钱，最后一个参数未知<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetGold</td>
+						        <td>int GetGold( int playerId)</td>
+						        <td>效果：获得该玩家金钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型:玩家金钱</td>
+						    </tr>
+						    <tr>
+						        <td >GetReliableGold</td>
+						        <td>int GetReliableGold( int playerId)</td>
+						        <td>效果：获得该玩家可死亡掉落的金钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型:该玩家可死亡掉落的金钱</td>
+						    </tr>
+						    <tr>
+						        <td >GetUnreliableGold</td>
+						        <td>int GetUnreliableGold( int playerId)</td>
+						        <td>效果：获得该玩家不会因死亡掉落的金钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型:该玩家不会因死亡掉落的金钱</td>
+						    </tr>
+						    <tr>
+						        <td >ResetTotalEarnedGold</td>
+						        <td>void ResetTotalEarnedGold( int playerId)</td>
+						        <td>效果：设置玩家总共获得的金钱<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >ResetTotalEarnedGold</td>
+						        <td>int GetTotalEarnedGold( int playerId)</td>
+						        <td>效果：获得玩家总共获得的金钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型:该玩家总共获得的金钱</td>
+						    </tr>
+						    <tr>
+						        <td >GetTotalGoldSpent</td>
+						        <td>int GetTotalGoldSpent( int playerId)</td>
+						        <td>效果：获得玩家总共消费的金钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型:该玩家总共消费的金钱</td>
+						    </tr>
+						    <tr>
+						        <td >AddGoldSpentOnSupport</td>
+						        <td>void AddGoldSpentOnSupport( int, int )</td>
+						        <td>效果：增加玩家可用金额<br>传入参数：<br>第一个参数预计为playerId:玩家ID，第一个参数预计为amt:可用金额<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetGoldSpentOnSupport</td>
+						        <td>int GetGoldSpentOnSupport( int playerId)</td>
+						        <td>效果：获得玩家可用金额<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家可用金额</td>
+						    </tr>
+						    <tr>
+						        <td >GetGoldSpentOnConsumables</td>
+						        <td>int GetGoldSpentOnConsumables( int playerId)</td>
+						        <td>效果：获得玩家在消费品上花费的钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家在消费品上花费的钱</td>
+						    </tr>
+						    <tr>
+						        <td >GetGoldSpentOnItems</td>
+						        <td>int GetGoldSpentOnItems( int playerId)</td>
+						        <td>效果：获得玩家在购买装备上花费的钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家在购买装备上花费的钱</td>
+						    </tr>
+						    <tr>
+						        <td >GetGoldLostToDeath</td>
+						        <td>int GetGoldLostToDeath( int playerId)</td>
+						        <td>效果：获得玩家在因死亡掉落的钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家在因死亡掉落的钱</td>
+						    </tr>
+						    <tr>
+						        <td >GetGoldSpentOnBuybacks</td>
+						        <td>int GetGoldSpentOnBuybacks( int playerId)</td>
+						        <td>效果：获得玩家在买活上花费的钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家在买活上花费的钱</td>
+						    </tr>
+						    <tr>
+						        <td >GetGoldPerMin</td>
+						        <td>float GetGoldPerMin( int playerId)</td>
+						        <td>效果：玩家每分钟获得的钱<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>float类型：玩家每分钟获得的钱</td>
+						    </tr>
+						    <tr>
+						        <td >GetXPPerMin</td>
+						        <td>float GetXPPerMin( int playerId)</td>
+						        <td>效果：等待测试,玩家每分钟获得的经验(总感觉方法名不对，应该是GetEXPPerMin)<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>float类型：玩家每分钟获得的经验</td>
+						    </tr>
+						    <tr>
+						        <td >GetAegisPickups</td>
+						        <td>int GetAegisPickups( int playerId)</td>
+						        <td>效果：获得玩家战斗系统镜头（不知道是何作用）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：未知</td>
+						    </tr>
+						    <tr>
+						        <td >AddAegisPickup</td>
+						        <td>void AddAegisPickup( int playerId)</td>
+						        <td>效果：增加玩家战斗系统镜头（不知道是何作用）<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetRunePickups</td>
+						        <td>int GetRunePickups( int playerId)</td>
+						        <td>效果：获得符文镜头（不知道是何作用）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：未知</td>
+						    </tr>
+						    <tr>
+						        <td >AddRunePickup</td>
+						        <td>void AddRunePickup( int playerId)</td>
+						        <td>效果：增加符文镜头（不知道是何作用）<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetNumConsumablesPurchased</td>
+						        <td>int GetNumConsumablesPurchased( intplayerId )</td>
+						        <td>效果：获得玩家已购买的消费品的数量<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家已购买的消费品的数量</td>
+						    </tr>
+						    <tr>
+						        <td >GetNumItemsPurchased</td>
+						        <td>int GetNumItemsPurchased( int playerId)</td>
+						        <td>效果：获得玩家已购买的装备的数量<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家已购买的装备的数量</td>
+						    </tr>
+						    <tr>
+						        <td >GetTimeOfLastItemPurchase</td>
+						        <td>float GetTimeOfLastItemPurchase( int playerId)</td>
+						        <td>效果：获得玩家已购买的装备的数量<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>float类型：玩家已购买的装备的数量</td>
+						    </tr>
+						    <tr>
+						        <td >GetTimeOfLastConsumablePurchase</td>
+						        <td>float GetTimeOfLastConsumablePurchase( int playerId)</td>
+						        <td>效果：获得玩家最后一次购买消费品的时间<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>float类型：玩家最后一次购买消费品的时间</td>
+						    </tr>
+						    <tr>
+						        <td >GetTimeOfLastDeath</td>
+						        <td>float GetTimeOfLastDeath( int playerId)</td>
+						        <td>效果：获得玩家最后一次死亡时间<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>float类型：玩家最后一次死亡时间</td>
+						    </tr>
+						    <tr>
+						        <td >GetRespawnSeconds</td>
+						        <td>int GetRespawnSeconds( int playerId)</td>
+						        <td>效果：获得玩家复活倒计时<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家复活倒计时</td>
+						    </tr>
+						     <tr>
+						        <td >GetRespawnSeconds</td>
+						        <td>void IncrementTotalEarnedXP( int playerId, int amt)</td>
+						        <td>效果：增加玩家获得的总共经验数<br>传入参数：<br>playerId:玩家ID，amt：经验数<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetTotalEarnedXP</td>
+						        <td>int GetTotalEarnedXP( int playerId)</td>
+						       <td>效果：增加玩家获得的总共经验数<br>传入参数：<br>playerId:玩家ID<br>int类型：玩家获得的总共经验数</td>
+						    </tr>
+						     <tr>
+						        <td >AddClaimedFarm</td>
+						        <td>void AddClaimedFarm( int playerId, float farm)</td>
+						        <td>效果：增加工资（求测试）<br>传入参数：<br>playerId:玩家ID，farm：工资数量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetClaimedFarm</td>
+						        <td>float GetClaimedFarm( int playerId)</td>
+						        <td>效果：获得玩家工资<br>传入参数：<br>playerId:玩家ID，farm：工资数量<br>返回值：<br>int类型：玩家工资</td>
+						    </tr>
+						    <tr>
+						        <td >GetRawPlayerDamage</td>
+						        <td>int GetRawPlayerDamage( int playerId)</td>
+						        <td>效果：获得玩家受到的伤害<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家受到的伤害</td>
+						    </tr>
+						    <tr>
+						        <td >GetRawPlayerDamage</td>
+						        <td>void ClearRawPlayerDamageMatrix( int playerId)</td>
+						        <td>效果：清除玩家受到的伤害矩阵<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >ClearKillsMatrix</td>
+						        <td>void ClearKillsMatrix( int playerId)</td>
+						        <td>效果：清除玩家杀人矩阵<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetTowerDamageTaken</td>
+						        <td>int GetTowerDamageTaken( int playerId)</td>
+						        <td>效果：获得塔的伤害<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：塔的伤害</td>
+						    </tr>
+						    <tr>
+						        <td >GetCreepDamageTaken</td>
+						        <td>int GetCreepDamageTaken( int playerId)</td>
+						        <td>效果：获得小兵的伤害<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：小兵的伤害</td>
+						    </tr>
+						     <tr>
+						        <td >GetHeroDamageTaken</td>
+						        <td>int GetHeroDamageTaken( int playerId)</td>
+						        <td>效果：获得英雄的伤害<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：英雄的伤害</td>
+						    </tr>
+						    <tr>
+						        <td >GetHeroDamageTaken</td>
+						        <td>int GetDamageDoneToHero( int playerId, int heroId)</td>
+						        <td>效果：获得该玩家对英雄的伤害<br>传入参数：<br>playerId:玩家ID，heroId：英雄ID<br>返回值：<br>int类型：该玩家对英雄的伤害</td>
+						    </tr>
+						    <tr>
+						        <td >GetKillsDoneToHero</td>
+						        <td>int GetKillsDoneToHero( int playerId, int heroId)</td>
+						        <td>效果：获得该玩家对某个英雄的击杀次数<br>传入参数：<br>playerId:玩家ID，heroId：英雄ID<br>返回值：<br>int类型：获得该玩家对某个英雄的击杀次数</td>
+						    </tr>
+						    <tr>
+						        <td >GetSelectedHeroName</td>
+						        <td>string GetSelectedHeroName( int playerId)</td>
+						        <td>效果：获得该玩家选择的英雄名<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>字符串类型：该玩家选择的英雄名</td>
+						    </tr>
+						    <tr>
+						        <td >GetSelectedHeroID</td>
+						        <td>int GetSelectedHeroID( int playerId)</td>
+						        <td>效果：获得该玩家选择的英雄ID<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：该玩家选择的英雄ID</td>
+						    </tr>
+						    <tr>
+						        <td >IsHeroSelected</td>
+						        <td>bool IsHeroSelected( string heroName)</td>
+						        <td>效果：该名称的英雄是否已被选择<br>传入参数：<br>heroName:英雄名称<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >WhoSelectedHero</td>
+						        <td>int WhoSelectedHero( string heroName)</td>
+						        <td>效果：根据英雄名返回选择该英雄的玩家ID<br>传入参数：<br>heroName:英雄名称<br>返回值：<br>int类型：玩家ID</td>
+						    </tr>
+						    <tr>
+						        <td >GetSelectedHeroEntity</td>
+						        <td>Entity GetSelectedHeroEntity( int playerId)</td>
+						        <td>效果：根据英雄名返回选择该英雄的实体<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>Entity：选择该英雄的实体</td>
+						    </tr>
+						    <tr>
+						        <td >HasSelectedHero</td>
+						        <td>bool HasSelectedHero( int playerId)</td>
+						        <td>效果：该玩家是否已经选择了英雄<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>
+						    <tr>
+						        <td >GetPlayer</td>
+						        <td>Player GetPlayer( int playerId)</td>
+						        <td>效果：根据玩家ID，获得玩家实体<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>Player：玩家实体</td>
+						    </tr> 
+						    <tr>
+						        <td >GetNthPlayerIDOnTeam</td>
+						        <td>int GetNthPlayerIDOnTeam( int index, int team)</td>
+						        <td>效果：在队伍内获得第index个玩家的ID<br>传入参数：<br>index:索引，team：队伍<br>返回值：<br>int类型：玩家ID</td>
+						    </tr>  
+						    <tr>
+						        <td >IncrementLastHits</td>
+						        <td>void IncrementLastHits( int playerId)</td>
+						        <td>效果：增加最后攻击该单位的玩家ID<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetLastHits</td>
+						        <td>int GetLastHits( int playerId)</td>
+						        <td>效果：获得该单位的最后攻击玩家ID<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家ID</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementGoldBagsCollected</td>
+						        <td>void IncrementGoldBagsCollected( int playerId)</td>
+						        <td>效果：增加玩家收集到的金袋（冥魂之夜活动专用）<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetGoldBagsCollected</td>
+						        <td>int GetGoldBagsCollected( int playerId)</td>
+						        <td>效果：获得玩家收集到的金袋个数（冥魂之夜活动专用）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家收集到的金袋个数</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementLastHitStreak</td>
+						        <td>void IncrementLastHitStreak( int playerId)</td>
+						        <td>效果：增加击杀数量（冥魂之夜活动专用）<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >ClearLastHitStreak</td>
+						        <td>void ClearLastHitStreak( int playerId)</td>
+						        <td>效果：清除击杀数量（冥魂之夜活动专用）<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetLastHitStreak</td>
+						        <td>int GetLastHitStreak( int playerId)</td>
+						        <td>效果：获得玩家的最后击杀数（冥魂之夜活动专用）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家的最后击杀数</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementLastHitMultikill</td>
+						        <td>void IncrementLastHitMultikill( int playerId)</td>
+						        <td>效果：设置玩家的最后连杀数<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >ClearLastHitMultikill</td>
+						        <td>void ClearLastHitMultikill( int playerId)</td>
+						        <td>效果：清除玩家的最后连杀数<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetLastHitMultikill</td>
+						        <td>int GetLastHitMultikill( int playerId)</td>
+						        <td>效果：清除玩家的最后连杀数<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家的最后连杀数</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementNearbyCreepDeaths</td>
+						        <td>void IncrementNearbyCreepDeaths( int playerId)</td>
+						        <td>效果：增加玩家最近击杀的小兵数量<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家最近击杀的小兵数量</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementNearbyCreepDeaths</td>
+						        <td>void IncrementDenies( int playerId)</td>
+						        <td>效果：增加玩家反补数量<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetDenies</td>
+						        <td>int GetDenies( int playerId)</td>
+						        <td>效果：获得玩家反补数量<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：玩家反补数量</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementClaimedMisses</td>
+						        <td>void IncrementClaimedMisses( int playerId)</td>
+						        <td>效果：增加该玩家的丢失数量（冥魂之夜活动，逃跑的怪数量？）<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetClaimedMisses</td>
+						        <td>int GetClaimedMisses( int playerId)</td>
+						        <td>效果：增加该玩家的丢失数量（冥魂之夜活动，逃跑的怪数量？）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：该玩家的丢失数量</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementClaimedDenies</td>
+						        <td>void IncrementClaimedDenies( int playerId)</td>
+						        <td>效果：增加玩家反补的数量（冥魂之夜活动，逃跑的怪数量？）<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetClaimedDenies</td>
+						        <td>int GetClaimedDenies( int playerId )</td>
+						        <td>效果：获得该玩家的反补数量（冥魂之夜活动，逃跑的怪数量？）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：该玩家的反补数量</td>
+						    </tr>
+						    <tr>
+						        <td >IncrementMisses</td>
+						        <td> void IncrementMisses( int playerId)</td>
+						        <td>效果：不懂。。。。求测试<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetMisses</td>
+						        <td> int GetMisses( int playerId)</td>
+						        <td>效果：不懂。。。。求测试<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：不懂。。。。</td>
+						    </tr>
+						    <tr>
+						        <td >UpdateTeamSlot</td>
+						        <td>  void UpdateTeamSlot( int playerId, int slot)</td>
+						        <td>效果：更新该玩家队伍视角<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetTeam</td>
+						        <td>  int GetTeam( int playerId)</td>
+						        <td>效果：根据队伍id<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>int类型：队伍ID</td>
+						    </tr> 
+						    <tr>
+						        <td >IsBroadcaster</td>
+						        <td>bool IsBroadcaster( int playerId) </td>
+						        <td>效果：判断该玩家是否为广播员<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr> 
+						    <tr>
+						        <td >GetBroadcasterChannel</td>
+						        <td>uint GetBroadcasterChannel( int playerId)   </td>
+						        <td>效果：获取改玩家的广播频道<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>uint：广播频道实体</td>
+						    </tr> 
+						     <tr>
+						        <td >GetBroadcasterChannelSlot</td>
+						        <td>uint GetBroadcasterChannelSlot( int playerId)   </td>
+						        <td>效果：获取改玩家的广播视角<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>uint：广播视角</td>
+						    </tr> 
+						    <tr>
+						        <td >GetSteamAccountID</td>
+						        <td>uint GetSteamAccountID( int playerId)  </td>
+						        <td>效果：根据玩家编号获得该用户的steamID<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>uint：steam账号ID（不清楚为什么不直接返回String或者int，难道拿到的是steam账号实体）</td>
+						    </tr>
+						     <tr>
+						        <td >IsFakeClient</td>
+						        <td>bool IsFakeClient( int playerId)</td>
+						        <td>效果：判断该玩家是否是虚拟客户端<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>
+						    <tr>
+						        <td >HaveAllPlayersJoined </td>
+						        <td>bool HaveAllPlayersJoined()</td>
+						        <td>效果：所有玩家是否加入<br>传入参数：无<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>         
+						    <tr>
+						        <td >GetPlayerLoadedCompletely </td>
+						        <td>bool GetPlayerLoadedCompletely( int playerId)</td>
+						        <td>效果：所有玩家是否载入完成<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>   
+						    <tr>
+						        <td >SetPlayerReservedState </td>
+						        <td>void SetPlayerReservedState( int playerId, bool reserved)</td>
+						        <td>效果：所有玩家是否载入完成<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>      
+						    <tr>
+						        <td >GetPlayerReservedState </td>
+						        <td>bool GetPlayerReservedState( int playerId)</td>
+						        <td>效果：判断玩家是否是保留玩家（断线玩家重连调用）<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>   
+						    <tr>
+						        <td >GetConnectionState </td>
+						        <td>unknown_variant_type GetConnectionState( int playerId)    </td>
+						        <td>效果：获得玩家的连接状态<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>未知变量类型</td>
+						    </tr>      
+						    <tr>
+						        <td >HeroLevelUp </td>
+						        <td> void HeroLevelUp( int playerId)    </td>
+						        <td>效果：英雄升级<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>   
+						    <tr>
+						        <td >HeroLevelUp </td>
+						        <td> void HeroLevelUp( int playerId)    </td>
+						        <td>效果：英雄升级<br>传入参数：<br>playerId:玩家ID<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetLastBuybackTime </td>
+						        <td> void SetLastBuybackTime( int playerId, int time)</td>
+						        <td>效果：设置最后购买时间<br>传入参数：<br>playerId:玩家ID，time：时间<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetPlayerName </td>
+						        <td> string GetPlayerName( int playerId)</td>
+						        <td>效果：获得玩家名<br>传入参数：<br>playerId:玩家ID<br>返回值：<br>字符串类型：玩家名</td>
+						    </tr>  
+						    <tr>
+						        <td >GetUnitShareMaskForPlayer </td>
+						        <td> int GetUnitShareMaskForPlayer( int playerId, int otherPlayerId)</td>
+						        <td>效果：获得玩家单位共享列表<br>传入参数：<br>playerId:玩家ID，otherPlayerId：另一个玩家ID<br>返回值：<br>int类型：应该是列表的ID或者索引中的一个</td>
+						    </tr>  
+						    <tr>
+						        <td >IsHeroSharedWithPlayerID </td>
+						        <td>bool IsHeroSharedWithPlayerID( int playerId, int otherPlayerId)</td>
+						        <td>效果：判断是否对另一个玩家共享英雄<br>传入参数：<br>playerId:共享玩家ID，otherPlayerId：被共享的玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr> 
+						    <tr>
+						        <td >AreUnitsSharedWithPlayerID </td>
+						        <td>bool AreUnitsSharedWithPlayerID( int playerId, int otherPlayerId)</td>
+						        <td>效果：判断是否对另一个玩家共享单位<br>传入参数：<br>playerId:共享玩家ID，otherPlayerId：被共享的玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr> 
+						    <tr>
+						        <td >IsDisableHelpSetForPlayerID </td>
+						        <td> bool IsDisableHelpSetForPlayerID( int playerId, int otherPlayerId)</td>
+						        <td>效果：判断是否禁止对另一个玩家使用<br>传入参数：<br>playerId:共享玩家ID，otherPlayerId：被共享的玩家ID<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr> 
+						    <tr>
+						        <td >SetUnitShareMaskForPlayer </td>
+						        <td>void SetUnitShareMaskForPlayer( int, int, int, bool )</td>
+						        <td>效果：对某玩家共享控制单位列表<br>传入参数：<br>猜测：第一个为playerId:共享玩家ID，第二个为otherPlayerId：被共享的玩家ID，第三个为maskID或者maskIndex：列表的ID或索引，第四个为isShared：是否共享<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetNumCouriersForTeam </td>
+						        <td>int GetNumCouriersForTeam( int team)</td>
+						        <td>效果：获得队伍信使ID<br>传入参数：<br>team：队伍索引<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetNthCourierForTeam </td>
+						        <td>hscript GetNthCourierForTeam( int index, int team)</td>
+						        <td>效果：获得队伍的第N个信使<br>传入参数：<br>index： 就是N，第几个，team：队伍索引<br>返回值：<br>hscript：脚本实体</td>
+						    </tr>
+						    <tr>
+						        <td >SetBuybackCooldownTime </td>
+						        <td>void SetBuybackCooldownTime( int playerId, float cooldown)</td>
+						        <td>效果：设置玩家买活时间<br>传入参数：<br>playerId： 玩家ID，cooldown：设置买活时间<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetBuybackGoldLimitTime </td>
+						        <td>void SetBuybackGoldLimitTime( int playerId, float buybackGold)</td>
+						        <td>效果：设置玩家买活金钱<br>传入参数：<br>playerId： 玩家ID，buybackGold：设置买活钱<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >ResetBuybackCostTime </td>
+						        <td>void ResetBuybackCostTime( int playerId)</td>
+						        <td>效果：重置买活花费时间<br>传入参数：<br>playerId： 玩家ID<br>返回值：无</td>
+						    </tr>
+				        </tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTABaseGameMode">
+					<div class="page-header">
+						<h2 >基本游戏模式类&nbsp;继承:公共实体</h2>
+						<h5>CDOTABaseGameMode extends CBaseEntity</h5>
+						<p>Base game mode class</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+				       <tbody>
+				       	<tr>
+					        <td >BeginThink</td>
+					        <td>bool BeginThink( string thinkName, function func, float intervalInSeconds)</td>
+					        <td>效果：开启AI思考（使用一个函数和区间来启用行为回调）<br>传入参数：<br>thinkName：AI名，func：匿名方法，intervalInSeconds：回调时间<br>返回值：<br>布尔类型：true或false</td>
+					    </tr>
+					    <tr>
+					        <td >EndThink</td>
+					        <td>void EndThink( string thinkName )</td>
+					        <td>效果：关闭AI思考<br>传入参数：<br>thinkName：AI名<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetAlwaysShowPlayerInventory</td>
+					        <td>void SetAlwaysShowPlayerInventory( bool alwaysShow)</td>
+					        <td>效果：无视被选择的单位，显示玩家英雄的物品栏<br>传入参数：<br>alwaysShow：是否一直显示<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td >SetGoldSoundDisabled</td>
+					        <td>void SetGoldSoundDisabled( bool playSound)</td>
+					        <td>效果： 使用一个布尔值来开启或关闭获得黄金的声音<br>传入参数：<br>playSound：是否开启<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td >SetRecommendedItemsDisabled</td>
+					        <td>void SetRecommendedItemsDisabled( bool disableRecItems)</td>
+					        <td>效果：  使用一个布尔值开启或关闭推荐物品表<br>传入参数：<br>disableRecItems：是否开启推荐物品表<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td >SetCameraDistanceOverride</td>
+					        <td>void SetCameraDistanceOverride( float cameraDistance)</td>
+					        <td>效果： 设置不同的摄像机距离，dota2默认是1134<br>传入参数：<br>cameraDistance：摄像机举例<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetOverrideSelectionEntity</td>
+					        <td>void SetOverrideSelectionEntity( Unit  unit)</td>
+					        <td>效果：设置一个默认选择实体的覆盖，而不是每个玩家的英雄<br>传入参数：<br>Unit：默认实体<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SetRemoveIllusionsOnDeath</td>
+					        <td>void SetRemoveIllusionsOnDeath( bool removeIllusions)</td>
+					        <td>效果： 使幻象死亡时能够被迅速移除，而不是在附近待几秒钟<br>传入参数：<br>removeIllusions：是否溢出幻象<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >ClientLoadGridNav</td>
+					        <td>void ClientLoadGridNav() </td>
+					        <td>效果： 客户端加载网格坐标（gridnav 理解不能，暂时写网格坐标，如有更好答案请反馈）信息。客户端利用该信息辨别可以放置建筑的位置<br>传入参数：无<br>返回值：无</td>
+					    </tr>
+				       </tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CBaseAnimating">
+					<div class="page-header">
+						<h2 >动画模型&nbsp;继承:公共实体</a></h2>
+						<h5>CBaseAnimating extends CBaseEntity</h5>
+						<p>Animating models</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+				       <tbody>
+				       	<tr>
+						    <td >LookupAttachment</td>
+						    <td> int LookupAttachment( string attachmentName )</td>
+						    <td>效果：根据名称获得附件ID<br>传入参数：<br>attachmentName：名称<br>返回值：<br>int类型：附件ID</td>
+						</tr> 
+						<tr>
+						    <td >GetAttachmentOrigin</td>
+						    <td> vector GetAttachmentOrigin( int attachmentId )</td>
+						    <td>效果： 获得附件的原始矢量<br>传入参数：<br>attachmentId：附件ID<br>返回值：<br>vector类型：附件的原始矢量</td>
+						</tr>
+						 <tr>
+						    <td >GetAttachmentAngles</td>
+						    <td> vector GetAttachmentAngles( int attachmentId)</td>
+						    <td>效果：取得附件的id的角度作为p,y,r三个坐标（注：并不是X,Y,Z--p：y轴值，y：z轴值，r：x轴值，骚年希望你没晕，听我说完，p代表pitch是指俯仰通俗来说是高度，y代表yaw是指偏航就是左右转向，r代表roll横滚）
+						    <br>传入参数：<br>attachmentId：附件ID<br>返回值：<br>vector类型：坐标矢量</td>
+						</tr>
+						<tr>
+						    <td >GetAttachmentOrigin</td>
+						    <td> vector GetAttachmentOrigin( int attachmentId )</td>
+						    <td>效果： 获得附件的原始矢量<br>传入参数：<br>attachmentId：附件ID<br>返回值：<br>vector类型：附件的原始矢量</td>
+						</tr>
+						<tr>
+						    <td >IsSequenceFinished</td>
+						    <td>bool IsSequenceFinished()</td>
+						    <td>效果：  询问主序列是否播放完毕<br>传入参数：无<br>返回值：<br>布尔类型：true 或 false</td>
+						</tr>
+						<tr>
+						    <td >SetBodygroup</td>
+						    <td>void SetBodygroup( int, int ) </td>
+						    <td>效果：  设置主体<br>传入参数：<br>有待测试<br>返回值：无</td>
+						</tr>
+						<tr>
+						    <td >SetModelScale</td>
+						    <td>SetModelScale( float scale, float fadeTimeSeconds) </td>
+						    <td>效果： 设置模型尺寸<br>传入参数：<br>有待测试<br>返回值：无</td>
+						</tr>
+				       </tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CBaseFLex">
+					<div class="page-header">
+						<h2 >可伸缩性动画&nbsp;继承:动画模型</a></h2>
+						<h5>CBaseFLex extends CBaseAnimating</h5>
+						<p>Animated characters who have vertex flex capability</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+				        <tr>
+					    	<td >GetCurrentScene</td>
+					        <td> hscript GetCurrentScene()</td>
+					        <td>效果：返回最后激活的场景实体的实例（如果有的话）<br/>传入参数:无<br>返回值：<br>hscript类型：该脚本实体</td>
+					    </tr>
+					    <tr>
+					    	<td >GetSceneByIndex</td>
+					        <td>hscript GetSceneByIndex( int ) </td>
+					         <td>效果：根据索引返回场景实体的实例<br/>传入参数:<br>scene的索引<br>返回值：<br>hscript类型：该脚本实体</td>
+					    </tr>
+				       </tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTA_BaseNPC">
+					<div class="page-header">
+						<h2 >NPC单位基类&nbsp;继承:可伸缩动画</a></h2>
+						<h5>CDOTA_BaseNPC extends CBaseFlex</h5>
+						<p>A Dota NPC Unit</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+							<tr>
+						    	<td >IsCreature</td>
+						        <td> bool IsCreature()</td>
+						        <td>效果：判断此NpC是否为生物）<br/>传入参数:无<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						    	<td >IsHero</td>
+						        <td> bool IsHero()</td>
+						         <td>效果： 判断是否为是英雄（包括幻象）<br/>传入参数:无<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >IsRealHero</td>
+						        <td> bool IsRealHero()</td>
+						         <td>效果： 判断此英雄是否为真<br/>传入参数:无<br>返回值：<br>布尔类型：true或false</td>
+						    </tr> 
+						    <tr>
+						        <td >IsTower</td>
+						        <td>  bool IsTower()</td>
+						         <td>效果：  判断这是否为一个塔<br/>传入参数:无<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >IsAlive</td>
+						        <td>  bool IsAlive() </td>
+						         <td>效果：判断单位是否存活<br/>传入参数:无<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >IsMechanical</td>
+						        <td> bool IsMechanical() </td>
+						         <td>效果：判断该单位是否为机械单位<br/>传入参数:无<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >IsPhantom</td>
+						        <td> bool IsPhantom()</td>
+						         <td>效果： 判断该单位是否为虚无状态<br/>传入参数:无<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >SetInitialGoalEntity</td>
+						        <td> void SetInitialGoalEntity( Entity goalEntity)</td>
+						         <td>效果：设置NpC初路径点<br/>传入参数:<br>goalEntity：路径点实体<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetInitialGoalEntity</td>
+						        <td> Entity GetInitialGoalEntity()</td>
+						         <td>效果：返回改NPC的初路径点<br/>传入参数:<br>goalEntity：路径点实体<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >SetMustReachEachGoalEntity</td>
+						        <td>void SetMustReachEachGoalEntity( bool mustReach)</td>
+						         <td>效果： 设定改NPC是否需要到达每一个路径点，而不可以抄近路<br/>传入参数:<br>mustReach：是否抄近路<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetMustReachEachGoalEntity</td>
+						        <td>bool GetMustReachEachGoalEntity()</td>
+						         <td>效果： 获得NPC是否需要到达每一个路径点的布尔值<br/>传入参数:<br>goalEntity：路径点实体<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >AddNewModifier</td>
+						        <td>void AddNewModifier( Unit caster, Ability optionalSrcAbility, string modifierName, table modifierData) </td>
+						         <td>效果：给这个单位添加一个修改器<br/>传入参数:<br>caster：单位，optionalSrcAbility：可选择的标准技能，modifierName：修改器名，modifierData：修改器数据<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >HasModifier</td>
+						        <td>bool HasModifier( string modifierName) </td>
+						         <td>效果： 检查该单位是否已有修改器<br/>传入参数:<br>modifierName：修改器名<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >RemoveModifierByName</td>
+						        <td> void RemoveModifierByName( string modifierName)</td>
+						         <td>效果： 移除一个修改器<br/>传入参数:<br>modifierName：修改器名<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >RemoveModifierByNameAndCaster</td>
+						        <td> void RemoveModifierByNameAndCaster( string name, Unit caster)</td>
+						         <td>效果： 移除某个安装的修改器<br/>传入参数:<br>name：修改器名，caster：单位<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >AddItem</td>
+						        <td> void AddItem( Item itemName)</td>
+						         <td>效果： 把物品加入到单位的物品栏中<br/>传入参数:<br>itemName：物品名<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >AddAbility</td>
+						        <td>void AddAbility( string abilityName)</td>
+						         <td>效果： 通过名字给一个单位添加技能<br/>传入参数:<br>abilityName：技能名<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >RemoveAbility</td>
+						        <td> void RemoveAbility( string abilityName)</td>
+						         <td>效果：  根据技能名从实体中移除技能<br/>传入参数:<br>abilityName：技能名<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >HasAbility</td>
+						        <td>  bool HasAbility( string abilityName)</td>
+						         <td>效果：用名字检查一个单位是否有该技能<br/>传入参数:<br>abilityName：技能名<br>返回值：<br>布尔类型：true或false</td>
+						    </tr>
+						    <tr>
+						        <td >FindAbilityByName</td>
+						        <td>hscript FindAbilityByName( string abilityName)</td>
+						         <td>效果：使用技能名称检索一个技能<br/>传入参数:<br>abilityName：技能名<br>返回值：<br>hscript类型：技能脚本</td>
+						    </tr>
+						    <tr>
+						        <td >GetGoldBounty</td>
+						        <td>int GetGoldBounty()</td>
+						         <td>效果：获得该单位的金钱奖励<br/>传入参数:无<br>返回值：<br>int类型：该单位的金钱奖励</td>
+						    </tr>
+						    <tr>
+						        <td >SetDeathXP</td>
+						        <td> void SetDeathXP( int xpBounty)</td>
+						         <td>效果：设置该单位的击杀经验奖励<br/>传入参数:<br>xpBounty:经验数<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetDeathXP</td>
+						        <td>int GetGoldBounty()</td>
+						         <td>效果：获得该单位的金钱奖励<br/>传入参数:无<br>返回值：<br>int类型：该单位的金钱奖励</td>
+						    </tr>
+						    <tr>
+						        <td >GetDeathXP</td>
+						        <td>int GetDeathXP()</td>
+						         <td>效果：获得该单位的击杀经验奖励<br/>传入参数:无<br>返回值：<br>int类型：该单位的击杀经验奖励</td>
+						    </tr>
+						    <tr>
+						        <td >GetUnitName</td>
+						        <td>string GetUnitName()</td>
+						         <td>效果： 获得该单位名字<br/>传入参数:无<br>返回值：<br>字符串类型：该单位名字</td>
+						    </tr>
+						    <tr>
+						        <td >GetTeamNumber</td>
+						        <td>int GetTeamNumber()</td>
+						         <td>效果： 获得该单位队伍数字<br/>传入参数:无<br>返回值：<br>int类型：该单位队伍数字</td>
+						    </tr>
+						    <tr>
+						        <td >GetPlayerOwner</td>
+						        <td>hscript GetPlayerOwner() </td>
+						        <td>效果：返回拥有此单位的玩家<br/>传入参数:无<br>返回值：<br>hscript：玩家脚本实体</td>
+						    </tr>
+						    <tr>
+						        <td >SetMaximumGoldBounty</td>
+						        <td>void SetMaximumGoldBounty( int goldBounty) </td>
+						        <td>效果：设置杀死该单位最大金钱奖励（赏金）<br/>传入参数:<br>goldBounty:金钱奖励数<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetMinimumGoldBounty</td>
+						        <td> void SetMinimumGoldBounty( int goldBounty)</td>
+						        <td>效果：设置杀死该单位最小金钱奖励<br/>传入参数:<br>goldBounty:金钱奖励数<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetTotalPurchasedUpgradeGoldCost</td>
+						        <td>int GetTotalPurchasedUpgradeGoldCost()</td>
+						        <td>效果： 获得升级技能所花金钱<br/>传入参数:<br>返回值：<br>int类型:升级技能所花金钱</td>
+						    </tr>
+						    <tr>
+						        <td >ForceKill</td>
+						        <td>void ForceKill( bool playAegisLines)</td>
+						        <td>效果：立刻杀死该单位<br/>传入参数:<br>playAegisLines:作用未知等待测试（预测true为自杀？）<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetBaseDamageMin</td>
+						        <td>int GetBaseDamageMin()</td>
+						        <td>效果：获得该单位最小攻击伤害数值<br/>传入参数:无<br>返回值：<br>int类型:获得该单位最小攻击伤害数值</td>
+						    </tr>
+						    <tr>
+						        <td >GetBaseDamageMax</td>
+						        <td>int GetBaseDamageMax()</td>
+						        <td>效果：获得该单位最大攻击伤害数值<br/>传入参数:无<br>返回值：<br>int类型:获得该单位最大攻击伤害数值</td>
+						    </tr>
+						    <tr>
+						        <td >Heal</td>
+						        <td>void Heal( int amount, Unit source)</td>
+						        <td>效果：治愈该单位<br/>传入参数:<br>amount:治愈量大小，source：被治愈的单位<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetMaxHealth</td>
+						        <td> int GetMaxHealth()</td>
+						        <td>效果： 获得该单位的最大生命上限<br/>传入参数:无<br>返回值：<br>int类型:该单位的最大生命上限</td>
+						    </tr>
+						    <tr>
+						        <td >GetHealthPercent</td>
+						        <td>int GetHealthPercent()</td>
+						        <td>效果： 获得该单位的生命值的百分比<br/>传入参数:无<br>返回值：<br>int类型:该单位的生命值的百分比</td>
+						    </tr>
+						    <tr>
+						        <td >SetMana</td>
+						        <td>void SetMana( float mana)</td>
+						        <td>效果： 设置该单位魔法值<br/>传入参数:<br>mana:魔法值<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetMaxMana</td>
+						        <td>float GetMaxMana()</td>
+						        <td>效果： 获得该单位最大魔法值<br/>传入参数:无<br>返回值：<br>float类型:该单位最大魔法值</td>
+						    </tr>
+						    <tr>
+						        <td >RespawnUnit</td>
+						        <td> void RespawnUnit()</td>
+						        <td>效果：  如果可以的话，复活目标单位<br/>传入参数:无<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >GetLevel</td>
+						        <td> int GetLevel()</td>
+						        <td>效果： 返回单位等级<br/>传入参数:无<br>返回值：<br>int类型：单位等级</td>
+						    </tr>  
+						    <tr>
+						        <td >GetItemInSlot</td>
+						        <td> hscript GetItemInSlot( int slotId)</td>
+						        <td>效果： 返回物品栏中第N个物品（索引从0开始）<br/>传入参数:<br>slotId:物品栏中的索引<br>返回值：<br>hscript类型：物品脚本</td>
+						    </tr> 
+						    <tr>
+						        <td >CastAbilityOnTarget</td>
+						        <td>void CastAbilityOnTarget( Unit target, Ability ability, int )</td>
+						        <td>效果：  施放指定目标技能<br/>传入参数:<br>target:目标单位,ability：技能，第三个参数可以是0或-1,但作用未知（可能是用于判断是否可以点地释放的）<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >CastAbilityNoTarget</td>
+						        <td>void CastAbilityNoTarget( Ability ability, int ) </td>
+						        <td>效果： 施放无目标技能，第三个参数可以是0或-1<br/>传入参数:<br>ability：技能，第三个参数可以是0或-1,但作用未知（可能是用于判断是否可以点地释放的）<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >SetOriginalModel</td>
+						        <td>void SetOriginalModel( string originalModel)  </td>
+						        <td>效果： 设置单位的初始模型，生效时将会改变模型视图（类似于变身技能吧）<br/>传入参数:<br>originalModel：模型名<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >AddNoDraw</td>
+						        <td> void AddNoDraw()</td>
+						        <td>效果：添加不可选取标记<br/>传入参数:无<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >RemoveNoDraw</td>
+						        <td> void RemoveNoDraw()</td>
+						        <td>效果：移除不可选取标记<br/>传入参数:无<br>返回值：无</td>
+						    </tr>  
+						    <tr>
+						        <td >GetPlayerOwnerID</td>
+						        <td>int GetPlayerOwnerID()</td>
+						        <td>效果：获得该单位所有者的游戏ID<br/>传入参数:无<br>返回值：<br>int类型：单位所有者的游戏ID</td>
+						    </tr> 
+						    <tr>
+						        <td >IsRangedAttacker</td>
+						        <td>bool IsRangedAttacker()</td>
+						        <td>效果：判断该单位是否为范围攻击<br/>传入参数:无<br>返回值：<br>布尔类型：true 或 false</td>
+				    		</tr> 
+				       </tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTA_BaseNPC_Building">
+					<div class="page-header">
+						<h2 >NPC单位实体类-建筑&nbsp;继承:NPC单位基类</a></h2>
+						<h5>CDOTA_BaseNPC_Building extends CDOTA_BaseNPC</h5>
+						<p>A building</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+							 <tr>
+						        <td >GetInvulnCount</td>
+						        <td>int GetInvulnCount()</td>
+						        <td>效果：获得一个建筑的无敌时间<br>传入参数：无<br>返回值：<br>int： 无敌时间</td>
+						    </tr>
+						    <tr>
+						        <td >SetInvulnCount</td>
+						        <td>void SetInvulnCount( int )</td>
+						        <td>效果：设置一个建筑的无敌时间<br>传入参数：<br>int 无敌时间<br>返回值：无</td>
+						    </tr>
+						</tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTA_BaseNPC_Creature">
+					<div class="page-header">
+						<h2 >NPC单位实体类-普通单位&nbsp;继承:NPC单位基类</a></h2>
+						<h5>CDOTA_BaseNPC_Creature extends CDOTA_BaseNPC</h5>
+						<p>A Dota NPC Unit</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+							<tr>
+						        <td >CreatureLevelUp</td>
+						        <td>void CreatureLevelUp( int numLevels) </td>
+						        <td>效果：  给该生物以特定数字升级<br>传入参数：<br>numLevels:等级<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >AddItemDrop</td>
+						        <td>void AddItemDrop( PhysicalItem item)</td>
+						        <td>效果： 为该单位添加特定的掉落物品<br>传入参数：<br>item:物品<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetChampion</td>
+						        <td>void SetChampion( bool champion) </td>
+						        <td>效果： 设置该单位精英<br>传入参数：<br>champion:是否是精英<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >IsChampion</td>
+						        <td>bool IsChampion()</td>
+						        <td>效果：判断该单位是否为精英<br>传入参数：<br>attachmentName：名称<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr> 
+						    <tr>
+						        <td >SetHPGain</td>
+						        <td>void SetHPGain( int hpPerLevel)</td>
+						        <td>效果： 设置每级生命上限增加量<br>传入参数：<br>hpPerLevel:HP增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetManaGain</td>
+						        <td>void SetManaGain( int manaPerLevel)</td>
+						        <td>效果： 设置每级魔法上限增加量<br>传入参数：<br>hpPerLevel:魔法增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetHPRegenGain</td>
+						        <td>void SetHPRegenGain( float regenPerLevel) </td>
+						        <td>效果： 设置每级生命回复量<br>传入参数：<br>regenPerLevel:生命回复量<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >SetManaRegenGain</td>
+						        <td>void SetManaRegenGain( float manaRegenGain)</td>
+						        <td>效果：  设置每级魔法回复量<br>传入参数：<br>regenPerLevel:魔法回复量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetDamageGain</td>
+						        <td>void SetDamageGain( int damageGain)</td>
+						        <td>效果：设置该生物每级伤害增加<br>传入参数：<br>damageGain:伤害增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetArmorGain</td>
+						        <td>void SetArmorGain( float armorGain)</td>
+						        <td>效果： 设置该生物每级护甲增加<br>传入参数：<br>armorGain:护甲增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetMagicResistanceGain</td>
+						        <td>void SetMagicResistanceGain( float magicResistGain) </td>
+						        <td>效果：  设置该生物每级魔抗增加<br>传入参数：<br>magicResistGain:魔抗增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetDisableResistanceGain</td>
+						        <td> void SetDisableResistanceGain( float disableResist)</td>
+						        <td>效果：设置disable resitance(可能为残废抗性？)类似上面的魔抗(待测试)<br>传入参数：<br>disableResist:增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetAttackTimeGain</td>
+						        <td> void SetAttackTimeGain( float attackSpeedGain)</td>
+						        <td>效果：设置每级攻击速度增加<br>传入参数：<br>attackSpeedGain:攻击速度增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetMoveSpeedGain</td>
+						        <td> void SetMoveSpeedGain( int moveSpeedGain)</td>
+						        <td>效果：设置每级移动速度增加<br>传入参数：<br>moveSpeedGain:移动速度增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetBountyGain</td>
+						        <td>void SetBountyGain( int bountyGain)</td>
+						        <td>效果： 设置每级金钱奖励增加<br>传入参数：<br>bountyGain:金钱奖励增加量<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetXPGain</td>
+						        <td>void SetXPGain( int xpGain)</td>
+						        <td>效果：设置每级经验奖励增加<br>传入参数：<br>xpGain:经验奖励增加量<br>返回值：无</td>
+						    </tr>
+						</tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTA_BaseNPC_Hero">
+					<div class="page-header">
+						<h2 >NPC单位实体类-英雄&nbsp;继承:NPC单位基类</a></h2>
+						<h5>CDOTA_BaseNPC_Hero extends CDOTA_BaseNPC</h5>
+						<p>A Dota Hero NPC</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+							<tr>
+						        <td class="td1">ModifyGold</td>
+						        <td>int ModifyGold( int goldAmmount, bool reliable, int ) </td>
+						        <td>效果：  给该英雄一定金钱<br>传入参数：<br>goldAmmount:钱的数量，reliable：是否为可靠的（死亡掉落），最后一个参数猜测为英雄ID或玩家ID中的一个等待测试<br>返回值：<br>int类型：作用未知</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetGold</td>
+						        <td>int GetGold()</td>
+						        <td>效果：返回该玩家拥有的金钱量<br>传入参数：无<br>返回值：<br>int类型：玩家拥有金钱量</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">SetGold</td>
+						        <td>void SetGold( int goldAmmount, bool reliable)</td>
+						        <td>效果：设置该玩家的金钱量<br>传入参数：<br>goldAmmount：金钱量，reliable：是否死亡掉落<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetCurrentXP</td>
+						        <td>int GetCurrentXP()</td>
+						        <td>效果：获得玩家当前经验值<br>传入参数：无<br>返回值：<br>int类型：玩家当前经验值</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetPlayerID</td>
+						        <td>int GetPlayerID()</td>
+						        <td>效果：返回拥有该英雄的玩家ID<br>传入参数：无<br>返回值：<br>int类型：拥有该英雄的玩家ID</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">RespawnHero</td>
+						        <td>void RespawnHero( bool buyback, bool, bool ) </td>
+						        <td>效果：复活该英雄<br>传入参数：<br>buyback：是否买活，剩余2个参数未知，坐等测试<br>返回值：无</td>
+						    </tr> 
+						</tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTABaseAbility">
+					<div class="page-header">
+						<h2 >技能基类&nbsp;继承:公共实体</a></h2>
+						<h5>CDOTABaseAbility extends CBaseEntity</h5>
+						<p>An ability</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+							<tr>
+						    	<td >GetAbilityName</td>
+						        <td>string GetAbilityName()</td>
+						        <td>效果：返回技能名称<br/>传入参数:无<br>返回值：<br>字符串类型：技能名称</td>
+						    </tr>
+						    <tr>
+						        <td >GetSpecialValueFor</td>
+						        <td> variant GetSpecialValueFor( string specialValue)</td>
+						        <td>效果：从该技能当前等级的特殊值块中获得值。该技能必须有一个关键值中定义的特殊技能值块<br/>传入参数:<br>specialValue：特殊值<br>返回值：<br>variant类型：获得的值</td>
+						    </tr>
+						    <tr>
+						        <td >GetCastRange</td>
+						        <td>int GetCastRange()</td>
+						        <td>效果： 获得技能范围<br/>传入参数:无<br>返回值：<br>int类型：技能范围</td>
+						    </tr>
+						    <tr>
+						        <td >IsFullyCastable</td>
+						        <td>bool IsFullyCastable()</td>
+						        <td>效果： 返回该技能是否可以释放<br/>传入参数:无<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>
+						    <tr>
+						        <td >IsChanneling</td>
+						        <td>bool IsChanneling()</td>
+						        <td>效果： 返回改技能是否正在准备中<br/>传入参数:无<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>   
+						    <tr>
+						        <td >IsInAbilityPhase</td>
+						        <td>bool IsInAbilityPhase()</td>
+						        <td>效果： 返回该技能是否在释放中<br/>传入参数:无<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr> 
+						    <tr>
+						        <td >GetCooldown</td>
+						        <td> float GetCooldown( int level)</td>
+						        <td>效果： 获得该技能特定等级的冷却时间，而不是剩余冷却时间<br/>传入参数:<br>level：技能等级<br>返回值：<br>float类型：技能特定等级的冷却时间</td>
+						    </tr>
+						    <tr>
+						        <td >GetCooldown</td>
+						        <td> float GetCooldown( int level)</td>
+						        <td>效果： 获得该技能特定等级的冷却时间，而不是剩余冷却时间<br/>传入参数:<br>level：技能等级<br>返回值：<br>float类型：技能特定等级的冷却时间</td>
+						    </tr>
+						    <tr>
+						        <td >MarkAbilityButtonDirty</td>
+						        <td> void MarkAbilityButtonDirty()</td>
+						        <td>效果：标记该技能按钮需要刷新<br/>传入参数:无<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >SetLevel</td>
+						        <td>void SetLevel( int abilityLevel)</td>
+						        <td>效果：设置技能等级<br/>传入参数:<br>abilityLevel：技能等级<br>返回值：无</td>
+						    </tr>
+						</tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDotaQuestBase">
+					<div class="page-header">
+						<h2 >任务基类</a></h2>
+						<h5>CDotaQuestBase</h5>
+						<p>A quest</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+							<tr>
+						    	<td class="td1">SetTextReplaceValue</td>
+						        <td>void SetTextReplaceValue( int questText, int value)</td>
+						        <td>效果：设置任务<br/>传入参数:<br>questText：任务文本，value：任务值<br>返回值：<br>字符串类型：技能名称</td>
+						    </tr>  
+						    <tr>
+						        <td class="td1">CompleteQuest</td>
+						        <td> void CompleteQuest()</td>
+						        <td>效果：标记该任务完成<br/>传入参数:无<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">SetTextReplaceString</td>
+						        <td> void SetTextReplaceString( string replace )</td>
+						        <td>效果：设置该任务覆盖文本<br/>传入参数:无<br>返回值：无</td>
+						    </tr> 
+						</tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTA_Item">
+					<div class="page-header">
+						<h2 >物品类&nbsp;继承:技能基类</a></h2>
+						<h5>CDOTA_Item</h5>
+						<p>A usable item.</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+							<tr>
+						    	<td >SetPurchaseTime</td>
+						        <td>void SetPurchaseTime( float purchaseTime)</td>
+						        <td>效果：设置物品购买间隔<br/>传入参数:<br>purchaseTime：间隔时间<br>返回值：无</td>
+						    </tr>  
+						    <tr>
+						        <td >GetPurchaseTime</td>
+						        <td>float GetPurchaseTime()</td>
+						        <td>效果：获取物品购买间隔<br/>传入参数:无<br>返回值：<br>float类型：物品购买间隔</td>
+						    </tr> 
+						    <tr>
+						        <td >SetTextReplaceString</td>
+						        <td> void SetTextReplaceString( string replace )</td>
+						        <td>效果：设置该任务覆盖文本<br/>传入参数:无<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >SetPurchaser</td>
+						        <td> void SetPurchaser(Unit unit )</td>
+						        <td>效果： 设置该物品的购买者记录<br/>传入参数:<br>unit：购买单位<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetInitialCharges</td>
+						        <td>int GetInitialCharges()</td>
+						        <td>效果：  获取该物品初始可用次数<br/>传入参数:无<br>返回值：<br>int：可用次数</td>
+						    </tr>
+						    <tr>
+						        <td >GetCurrentCharges</td>
+						        <td>int GetCurrentCharges()</td>
+						        <td>效果： 获取该物品当前可用次数<br/>传入参数:无<br>返回值：<br>int：可用次数</td>
+						    </tr>
+						    <tr>
+						        <td >SetCurrentCharges</td>
+						        <td>void SetCurrentCharges( int charges)</td>
+						        <td>效果： 设置该物品当前可用次数<br/>传入参数:<br>charges：可用次数<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetPurchaser</td>
+						        <td>Unit GetPurchaser()</td>
+						        <td>效果：获取该物品的购买者<br/>传入参数:无<br>返回值：<br>Unit：购买者实体</td>
+						    </tr>
+						    <tr>
+						        <td >Think</td>
+						        <td>void Think() </td>
+						        <td>效果：预测是提供给AI的，方便AI使用物品<br/>传入参数:无<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >IsPermanent</td>
+						        <td> bool IsPermanent()</td>
+						        <td>效果：判断是否为永久物品<br/>传入参数:无<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>
+						    <tr>
+						        <td >StacksWithOtherOwners</td>
+						        <td> bool StacksWithOtherOwners()</td>
+						        <td>效果：未知函数(堆栈有关？)<br/>传入参数:无<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr>
+						    <tr>
+						        <td >SetStacksWithOtherOwners</td>
+						        <td> void SetStacksWithOtherOwners( bool stacks)  </td>
+						        <td>效果：未知函数(堆栈有关？)<br/>传入参数:<br>stacks：true 或 false<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td >GetShareability</td>
+						        <td>int GetShareability()</td>
+						        <td>效果： 返回物品共享类型<br/>传入参数:无<br>返回值：<br>int类型：物品共享类型</td>
+						    </tr>
+						    <tr>
+						        <td >GetCost</td>
+						        <td>int GetCost()</td>
+						        <td>效果： 返回物品价格<br/>传入参数:无<br>返回值：<br>int类型：物品价格</td>
+						    </tr>
+						    <tr>
+						        <td >GetContainer</td>
+						        <td>hscript GetContainer()</td>
+						        <td>效果：获得物品容器<br/>传入参数:无<br>返回值：<br>hscript类型：物品实体</td>
+						    </tr>    
+						</tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTA_Item_Physical">
+					<div class="page-header">
+						<h2 >地图物品类&nbsp;继承:动画模型</a></h2>
+						<h5>CDOTA_Item_Physical extends CBaseAnimating</h5>
+						<p>A physical item dropped in the world</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+							<tr>
+						        <td class="td1">GetCreationTime</td>
+						        <td> float GetCreationTime()</td>
+						        <td>效果：返回物品创建时的游戏时间<br/>传入参数:无<br>返回值：<br>float类型：物品创建时的游戏时间</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">GetContainedItem</td>
+						        <td>Item GetContainedItem()</td>
+						        <td>效果：返回包含的物品<br/>传入参数:无<br>返回值：<br>Item：物品</td>
+						    </tr>
+						    <tr>
+						    	<td class="td1">SetContainedItem</td>
+						        <td>void SetContainedItem( Item item)</td>
+						        <td>效果：设置物品购买间隔<br/>传入参数:<br>item：物品<br>返回值：无</td>
+						    </tr>  
+						</tbody>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CDOTAPlayer">
+					<div class="page-header">
+						<h2 >玩家类&nbsp;继承:动画模型</a></h2>
+						<h5>CDOTAPlayer extends CBaseAnimating</h5>
+						<p>the Player</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tr>
+					        <td class="td1">GetPlayerID</td>
+					        <td> int GetPlayerID()</td>
+					        <td>效果：获得玩家ID。注意当玩家没有选择队伍时为-1<br/>传入参数:无<br>返回值：<br>int类型：玩家ID</td>
+					    </tr> 
+					    <tr>
+					        <td class="td1">ReplaceHeroWith</td>
+					        <td>hscript ReplaceHeroWith( string heroClassName, int gold, int XP)</td>
+					        <td>效果：用新的具有特定类、金钱和经验的替代玩家的英雄<br/>传入参数:<br>heroClassName:英雄类型，gold：金钱，XP：经验<br>返回值：<br>hscript类型：英雄脚本</td>
+					    </tr> 
+					    <tr>
+					        <td class="td1">GetAssignedHero</td>
+					        <td>hscript GetAssignedHero()</td>
+					        <td>效果：获得玩家的英雄<br/>传入参数:无<br>返回值：<br>hscript类型：英雄脚本</td>
+					    </tr> 
+					     <tr>
+					        <td class="td1">SetKillCamUnit</td>
+					        <td>void SetKillCamUnit( hscript camUnit)</td>
+					        <td>效果：为这个英雄设置击杀回放单位<br/>传入参数:<br>camUnit：回放单位<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td class="td1">SetMusicStatus</td>
+					        <td>void SetMusicStatus( int nMusicStatus, float flIntensity)</td>
+					        <td>效果：设置玩家的音乐状态，注意只能在dota_music_battle_enable关掉时使用<br/>传入参数:<br>nMusicStatus：音乐状态，flIntensity:音量？<br>返回值：无</td>
+					    </tr>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CTriggerCamera">
+					<div class="page-header">
+						<h2 >摄像机类&nbsp;继承:公共实体</a></h2>
+						<h5>CTriggerCamera extends CBaseEntity</h5>
+						<p>Server-side camera entity</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						   <tr>
+						        <td >GetFov</td>
+						        <td> int GetFov() </td>
+						        <td>效果：以整型获得摄像机当前视角<br/>传入参数:无<br>返回值：<br>int类型：当前视角</td>
+						    </tr> 
+						    <tr>
+						        <td >SetFov</td>
+						        <td>void SetFov( int degrees, float rate)</td>
+						        <td>效果：设置摄像机视角<br/>传入参数:<br>degrees：摄像机的视角，rate：视角的变化率<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >ScreenFade</td>
+						        <td>void ScreenFade( int, int, int, int, float, float, int ) </td>
+						        <td>效果：设置屏幕淡入（出）效果<br/>传入参数:<br>猜测第一个为跳转时间（秒为单位），第2个用于确定淡出还是淡入，第3个为跳转到图片的时间，
+						                                    第4个为图片ID或索引中的一个，第5个为颜色值RGB，第6个为透明度，第7个为快速或者缓慢<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td >Enable</td>
+						        <td> void Enable() </td>
+						        <td>效果：  启用相机<br/>传入参数:无<br>返回值：无</td>
+						    </tr>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CSceneEntity">
+					<div class="page-header">
+						<h2 >场景类&nbsp;继承:公共实体</a></h2>
+						<h5>CSceneEntity extends CBaseEntity</h5>
+						<p>Server-side camera entity</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tr>
+					        <td >GetFov</td>
+					        <td> int GetFov() </td>
+					        <td>效果：以整型获得摄像机当前视角<br/>传入参数:无<br>返回值：<br>int类型：当前视角</td>
+					    </tr> 
+					     <tr>
+					        <td >SetFov</td>
+					        <td>void SetFov( int degrees, float rate)</td>
+					        <td>效果：设置摄像机视角<br/>传入参数:<br>degrees：摄像机的视角，rate：视角的变化率<br>返回值：无</td>
+					    </tr> 
+					     <tr>
+					        <td >ScreenFade</td>
+					        <td>void ScreenFade( int, int, int, int, float, float, int ) </td>
+					        <td>效果：设置屏幕淡入（出）效果<br/>传入参数:<br>猜测第一个为跳转时间（秒为单位），第2个用于确定淡出还是淡入，第3个为跳转到图片的时间，
+					                                    第4个为图片ID或索引中的一个，第5个为颜色值RGB，第6个为透明度，第7个为快速或者缓慢<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td >Enable</td>
+					        <td> void Enable() </td>
+					        <td>效果：  启用相机<br/>传入参数:无<br>返回值：无</td>
+					    </tr>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CEnvProjectedTexture">
+					<div class="page-header">
+						<h2 >动态阴影光照&nbsp;继承:公共实体</a></h2>
+						<h5>CEnvProjectedTexture extends CBaseEntity</h5>
+						<p>Dynamic, shadow casting light source</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tr>
+					        <td class="td1">SetLinearAttenuation</td>
+					        <td>void SetLinearAttenuation( float attenuation)</td>
+					       <td>效果：   设置光线线性衰减<br/>传入参数:<br>attenuation：衰减值<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td class="td1">SetQuadraticAttenuation</td>
+					        <td>void SetQuadraticAttenuation( float attenuation) </td>
+					       <td>效果：设置光线二次衰减<br/>传入参数:<br>attenuation：衰减值<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td class="td1">SetNearRange</td>
+					        <td> void SetNearRange( float nearRange)</td>
+					       <td>效果：设置光线最小范围<br/>传入参数:<br>nearRange：范围值<br>返回值：无</td>
+					    </tr>   
+					    <tr>
+					        <td class="td1">SetFarRange</td>
+					        <td> void SetFarRange( float farRange)</td>
+					       <td>效果：设置光线最大范围<br/>传入参数:<br>nearRange：范围值<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td class="td1">SetVolumetrics</td>
+					        <td> void SetVolumetrics( bool on, float intensity, float noise, int planes, float planeOffset)</td>
+					       <td>效果： 启/关闭体积光效<br/>传入参数:<br>on：开启或关闭，intensity：光强度，noise：光噪声，planes：所处的平面，planeOffset：平面衰减？<br>返回值：无</td>
+					    </tr> 
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="CEnvEntityMaker">
+					<div class="page-header">
+						<h2 >环境影响者类&nbsp;继承:公共实体</a></h2>
+						<h5>CEnvEntityMaker extends CBaseEntity</h5>
+						<p>Denv_entity_maker</p>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tr>
+					        <td >SpawnEntity</td>
+					        <td>void SpawnEntity()</td>
+					       <td>效果：在创建点创建一个实体<br/>传入参数:无<br>返回值：无</td>
+					    </tr> 
+					    <tr>
+					        <td >SpawnEntityAtEntityOrigin</td>
+					        <td>void SpawnEntityAtEntityOrigin( Entity entity)</td>
+					       <td>效果： 在特定实体实例的位置创建一个实体<br/>传入参数:<br>entity:实体<br>返回值：无</td>
+					    </tr>  
+					    <tr>
+					        <td >SpawnEntityAtNamedEntityOrigin</td>
+					        <td>void SpawnEntityAtNamedEntityOrigin( string entityName)</td>
+					       <td>效果： 在一个命名了的实体位置创建一个实体<br/>传入参数:<br>entityName:实体名<br>返回值：无</td>
+					    </tr>
+					    <tr>
+					        <td >SpawnEntityAtLocation</td>
+					        <td>void SpawnEntityAtLocation( vector location, vector orientation)</td>
+					       <td>效果：  以特定的位置和方向（欧拉角）创建一个实体<br/>传入参数:<br>location:位置，orientation：方向<br>返回值：无</td>
+					    </tr>
+				    </table>
+				</div>
+
+				<div class="bs-docs-section" id="OtherFunctions">
+					<div class="page-header">
+						<h2 >其他函数</a></h2>
+						<h5>Other Functions</h5>
+					</div>
+					<table class="table table-striped table-bordered table-condensed">
+						<tbody>
+						    <tr>
+						        <td class="td1">RandomInt</td>
+						        <td>int RandomInt( int min, int max)</td>
+						       <td>效果：在范围内获得一个随机整型<br/>传入参数:<br>min:最小值，max：最大值<br>返回值：<br>int类型：随机整数</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">RandomFloat</td>
+						        <td>float RandomFloat( float min, float max) </td>
+						       <td>效果：在范围内获得一个浮点整型<br/>传入参数:<br>min:最小值，max：最大值<br>返回值：<br>float类型：随机浮点整</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">RandomVector</td>
+						        <td>vector RandomVector( float distance)</td>
+						       <td>效果： 在范围内获得一个随机矢量<br/>传入参数:<br>distance:目标<br>返回值：<br>vector类型：随机矢量</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">RollPercentage</td>
+						        <td>bool RollPercentage( int percent)</td>
+						       <td>效果：在1-100滚动一个数，如果小于等于一个特定的数，则返回真<br/>传入参数:<br>percent:界定百分比<br>返回值：<br>布尔类型：true  或   flase</td>
+						    </tr>    
+						    <tr>
+						        <td class="td1">DoIncludeScript</td>
+						        <td>bool DoIncludeScript( string scriptName, hscript )</td>
+						       <td>效果：执行一个脚本<br/>传入参数:<br>scriptName:脚本名<br>返回值：<br>布尔类型：脚本实体</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">ShowMessage</td>
+						        <td>void ShowMessage( string message) </td>
+						       <td>效果：在所有客户端上打印一个hud信息。此函数似乎无效<br/>传入参数:<br>message:信息文本<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetMapName</td>
+						        <td> string GetMapName()</td>
+						       <td>效果： 获得地图名称<br/>传入参数:<br>message:信息文本<br>返回值：<br>字符串类型：地图名</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">SendToConsole</td>
+						        <td>void SendToConsole( string conCommand)</td>
+						       <td>效果： 发送一个字符串到控制台作为客户命令<br/>传入参数:<br>conCommand:命令<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">SendToServerConsole</td>
+						        <td>void SendToServerConsole( string conCommand)</td>
+						       <td>效果：发送一个字符串作为服务器命令<br/>传入参数:<br>conCommand:命令<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">PrintLinkedConsoleMessage</td>
+						        <td>void PrintLinkedConsoleMessage( string message, string conCommand)</td>
+						       <td>效果：用相关的控制台命令打印控制台消息<br/>传入参数:<br>message：信息，conCommand:命令<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">InitLogFile</td>
+						        <td>void InitLogFile( string fileName, string log)</td>
+						       <td>效果：如果文件不存在则在给出的目录中创建，如果存在则不做任何事情<br/>传入参数:<br>fileName：文件名，log:日志<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">AppendToLogFile</td>
+						        <td>void AppendToLogFile( string message, string log)</td>
+						       <td>效果：为登陆文件附上一个字符串<br/>传入参数:<br>message：信息，log:日志<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetWorldMinX</td>
+						        <td>float GetWorldMinX()</td>
+						       <td>效果： 获得世界的最小X值<br/>传入参数:无<br>返回值：<br>float类型：世界的最小X值</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">GetWorldMinY</td>
+						        <td>float GetWorldMinY()</td>
+						       <td>效果： 获得世界的最小Y值<br/>传入参数:无<br>返回值：<br>float类型：世界的最小Y值</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetWorldMaxX</td>
+						        <td>float GetWorldMaxX()</td>
+						       <td>效果： 获得世界的最大X值<br/>传入参数:无<br>返回值：<br>float类型：世界的最大X值</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetWorldMaxY</td>
+						        <td>float GetWorldMaxY()</td>
+						       <td>效果： 获得世界的最大Y值<br/>传入参数:无<br>返回值：<br>float类型：世界的最大Y值</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">Time</td>
+						        <td>float Time()</td>
+						       <td>效果：获得当前服务器时间<br/>传入参数:无<br>返回值：<br>float类型：前服务器时间</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetSystemTime</td>
+						        <td>string GetSystemTime()</td>
+						       <td>效果： 获得当前真实时间<br/>传入参数:无<br>返回值：<br>字符串类型：当前真实时间</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetSystemDate</td>
+						        <td>string GetSystemDate()</td>
+						       <td>效果： 获得当前真实日期<br/>传入参数:无<br>返回值：<br>字符串类型：当前当前真实日期</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">UTIL_RemoveImmediate</td>
+						        <td>void UTIL_RemoveImmediate(Entity entity)</td>
+						       <td>效果：立刻移除指定实体<br/>传入参数:<br>entity:实体<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DoEntFire</td>
+						        <td>void DoEntFire( string target, string action, string value, float delay, Entity activator, hscript ) </td>
+						       <td>效果：生成实体的输入/输出事件<br/>传入参数:<br>target:目标，action：动作，value：值，delay：延时，activator：实体，hscript：运行脚本<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">EntFireByHandle</td>
+						        <td>void EntFireByHandle( Entity entity, string target, string value, float delay, Entity activator, hscript ) </td>
+						       <td>效果：生成实体的输入/输出事件(handle)<br/>传入参数:<br>entity：实体，target:目标，value：值，delay：延时，activator：实体，hscript：运行脚本<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">IsValidEntity</td>
+						        <td> bool IsValidEntity( Entity entity) </td>
+						       <td>效果：  检查指定hscript是否为有效实体<br/>传入参数:<br>entity：实体<br>返回值：<br>布尔类型：true  或   flase</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">IsMarkedForDeletion</td>
+						        <td> bool IsMarkedForDeletion( Entity entity) </td>
+						       <td>效果：  如果实体有效并被标记为删除则返回为真<br/>传入参数:<br>entity：实体<br>返回值：<br>布尔类型：true  或   flase</td>
+						    </tr>  
+						    <tr>
+						        <td class="td1">DoUniqueString</td>
+						        <td>string DoUniqueString( string uniqueString)</td>
+						       <td>效果：生成在该代码中绝对唯一的字符串，通过任选的根字符串（参数）。可以用于不确定表中哪些关键字已被占用时像该表中添加数据。<br/>传入参数:<br>uniqueString：唯一<br>返回值：<br>字符串类型：添加后的关键字</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">ListenToGameEvent</td>
+						        <td>void ListenToGameEvent( string eventName, function listener, table luaOwner)</td>
+						       <td>效果： 使用脚本为游戏时间注册一个监听器<br/>传入参数:<br>eventName:事件名，listener：监听函数，luaOwner：lua脚本表<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">FireGameEvent</td>
+						        <td> void FireGameEvent( string eventName, table params)</td>
+						       <td>效果：触发游戏事件<br/>传入参数:<br>eventName:事件名，params：表<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">FireGameEventLocal</td>
+						        <td> void FireGameEventLocal( string eventName, table params)</td>
+						       <td>效果：触发不对客户播放的情况下启动事件<br/>传入参数:<br>eventName:事件名，params：表<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">PauseGame</td>
+						        <td> void PauseGame( bool pause)</td>
+						       <td>效果：暂停或解除暂停<br/>传入参数:<br>pause：是否暂停<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">EntIndexToHScript</td>
+						        <td>Entity EntityEntIndexToHScript( int entIndex)</td>
+						       <td>效果：将一个实体索引变成脚本代表实体脚本的实例<br/>传入参数:<br>entIndex：是否暂停<br>返回值：<br>Entity:脚本实体</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">PlayerInstanceFromIndex</td>
+						        <td>Player PlayerInstanceFromIndex( int playerIndex)</td>
+						       <td>效果：根据索引获得一个玩家的脚本实例<br/>传入参数:<br>playerIndex：玩家索引<br>返回值：<br>Player:玩家实体</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetListenServerHost</td>
+						        <td>Player GetListenServerHost() </td>
+						       <td>效果：在监听主机获得区域玩家<br/>传入参数:无<br>返回值：<br>Player:玩家实体</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">ScreenShake</td>
+						        <td>void ScreenShake( vector center, float aplitude, float frequency, float duration, float radius, int shakeStatus, bool airShake)</td>
+						       <td>效果：使用下列参数开始屏幕震动<br/>传入参数:<br>center:中心矢量, aplitude：高度, frequency：频率, duration：持续时间, radius：震动半径, shakeStatus：SHAKE_START = 0（开始）SHAKE_STOP = 1（停止）, airShake：是否空中震动<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">SpawnEntityFromTable</td>
+						        <td>bool SpawnEntityFromTable( string className, table spawnTable, Entity owner, function spawnCallback, hscript ) </td>
+						       <td>效果：部署表中实体。最后一个参数似乎无效，也许是玩家所有者？<br/>传入参数:<br>className:类名, spawnTable：重生表, spawnCallback：重生回调函数, hscript：脚本<br>返回值：<br>布尔类型：true  或   flase</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">SpawnEntityGroupFromTable</td>
+						        <td>bool SpawnEntityGroupFromTable( hscript, bool, hscript ) </td>
+						       <td>效果：部署表中实体组。<br/>传入参数:<br>有待考证<br>返回值：<br>布尔类型：true  或   flase</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">PrecacheEntityFromTable</td>
+						        <td>bool PrecacheEntityFromTable( table keyValues ) </td>
+						       <td>效果：从关键字值预载一个实体。<br/>传入参数:<br>keyValues：关键值<br>返回值：<br>布尔类型：true  或   flase</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">VectorToAngles</td>
+						        <td> qangle VectorToAngles( vector )  </td>
+						       <td>效果：为矢量获得qangles(angle为角度)<br/>传入参数:<br>需要获得角度的矢量<br>返回值：<br>qangle类型：矢量的角度</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">RotatePosition</td>
+						        <td>vector RotatePosition( vector vec, qangle angle, vector origin)</td>
+						       <td>效果：围绕一个点旋转矢量<br/>传入参数:<br>vec:旋转矢量，angle：旋转角度，origin：旋转点<br>返回值：<br>vector类型：预测为旋转后的矢量</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">RotateOrientation</td>
+						        <td>qangle RotateOrientation( qangle an1, qangle ang2)</td>
+						       <td>效果： 获得两个角之间的差值<br/>传入参数:<br>an1:第一个角，ang2：第二个角<br>返回值：<br>qangle类型：角度差异</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">RotationDelta</td>
+						        <td>qangle RotationDelta( qangle ang1, qangle ang2)</td>
+						       <td>效果：旋转增量<br/>传入参数:<br>an1:第一个角，ang2：第二个角<br>返回值：<br>qangle类型：待测试</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">EmitSoundOn</td>
+						        <td>void EmitSoundOn( string soundName, Entity entity)</td>
+						       <td>效果：在实体上播放命名的声音<br/>传入参数:<br>soundName:声音名，entity：实体<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">EmitSoundOnClient</td>
+						        <td>void EmitSoundOnClient( string soundName, Player listeningPlayer)</td>
+						       <td>效果：只为该玩家播放声音<br/>传入参数:<br>soundName:声音名，listeningPlayer：听到声音的玩家<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">EmitGlobalSound</td>
+						        <td>void EmitGlobalSound( string soundName)</td>
+						       <td>效果：为所有玩家播放命名的音乐<br/>传入参数:<br>soundName:声音名<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">StopSoundOn</td>
+						        <td>void StopSoundOn( string soundName, hscript )</td>
+						       <td>效果：停止实例播放命名的音乐<br/>传入参数:<br>soundName:声音名，第二个参数为脚本含义未知<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetPhysVelocity</td>
+						        <td>vector GetPhysVelocity( Entity object)</td>
+						       <td>效果：为VPHYS或者普通物体获得速度<br/>传入参数:<br>object:物体实体<br>返回值：<br>vector：速度矢量</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetPhysAngularVelocity</td>
+						        <td>vector GetPhysAngularVelocity(Entity object)</td>
+						       <td>效果：为VPHYS或者普通物体获得角速度<br/>传入参数:<br>object:物体实体<br>返回值：<br>vector：角速度矢量</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">Say</td>
+						        <td>void Say( Player from, string text, bool team)</td>
+						       <td>效果：让实体说话（字符串框显示？），布尔值为是否只有团队可见。第一个参数可以为nil（未知广播者）<br/>传入参数:<br>object:物体实体<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">AddThinkToEnt</td>
+						        <td>void AddThinkToEnt( Entity entity, string functionName)</td>
+						       <td>效果：给物体的C++ AI表（?）添加绑定AI函数<br/>传入参数:<br>entity:实体,functionName：方法名<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">LoadKeyValues</td>
+						        <td>variant LoadKeyValues( string file)</td>
+						       <td>效果：从特定关键值文本文件创建表<br/>传入参数:<br>file:文件名？<br>返回值：<br>variant：变量</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">LoadKeyValuesFromString</td>
+						        <td>variant LoadKeyValuesFromString( string kvString)</td>
+						       <td>效果：从特定关键值字符串创建表<br/>传入参数:<br>kvString:key名<br>返回值：<br>variant：变量</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DebugDrawScreenTextLine</td>
+						        <td>void DebugDrawScreenTextLine( float x, float y, int lineOffset, string text, int r, int g, int b, int a, float duration)</td>
+						       <td>效果：使用行偏移绘制文本<br/>传入参数:<br>x:X轴位置，y：Y轴位置，lineOffset：排列方式？，text：文本，r：rgb颜色的R值，g：rgb颜色的G值，b：rgb颜色的B值，a：透明度，duration：持续时间<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DebugDrawText</td>
+						        <td>void DebugDrawText( vector origin, string text, bool useViewCheck, float duration) </td>
+						       <td>效果：使用行偏移绘制文本<br/>传入参数:<br>origin：初始未知，text：文本，useViewCheck:是否使用视频检查，duration：持续时间<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DebugDrawBox</td>
+						        <td>void DebugDrawBox( vector origin, vector min, vector max, int r, int g, int b, int a, float duration) </td>
+						       <td>效果：绘制调试覆盖箱<br/>传入参数:<br>origin:初始位置，min：最小偏移量，max：最大偏移量，r：rgb颜色的R值，g：rgb颜色的G值，b：rgb颜色的B值，a：透明度，duration：持续时间<br>返回值：无</td>
+						    </tr>  
+						    <tr>
+						        <td class="td1">DebugDrawLine</td>
+						        <td>void DebugDrawLine( vector start, vector end, int r, int g, int b, bool zTest, float duration)</td>
+						       <td>效果：绘制调试覆盖线<br/>传入参数:<br>start:初始位置，end：结束位置，r：rgb颜色的R值，g：rgb颜色的G值，b：rgb颜色的B值，zTest：作用待定，duration：持续时间<br>返回值：无</td>
+						    </tr>   
+						    <tr>
+						        <td class="td1">DebugDrawCircle</td>
+						        <td>void DebugDrawCircle( vector center, vector radius, vector rgb, float a, bool ztest, float duration)</td>
+						       <td>效果： 绘制调试圈<br/>传入参数:<br>center:圆心，radius：半径，rgb：rgb颜色，a：透明度，zTest：作用待定，duration：持续时间<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">DebugDrawLine_vCol</td>
+						        <td>void DebugDrawLine_vCol( vector start, vector end, vector rgb, float a, bool ztest, float duration)</td>
+						       <td>效果： 使用color vec 绘制调试线<br/>传入参数:<br>start:开始位置，end：结束位置，rgb：rgb颜色，a：透明度，zTest：作用待定，duration：持续时间<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">DebugDrawBoxDirection</td>
+						        <td>void DebugDrawBoxDirection( vector center, vector min, vector max, vector forward, vector rgb, float a, float duration)</td>
+						       <td>效果： 绘制调试行进框<br/>传入参数:<br>center:中心位置，min：最小偏移量，max：最大偏移量，forward：前方，rgb：rgb颜色，a：透明度，zTest：作用待定，duration：持续时间<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">DebugDrawClear</td>
+						        <td>void DebugDrawClear() </td>
+						       <td>效果： 尝试清除所有调试覆盖信息<br/>传入参数:无<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">GetFrameCount</td>
+						        <td>int GetFrameCount()</td>
+						       <td>效果：  返回引擎当前帧计数<br/>传入参数:无<br>返回值：<br>int类型：当前帧计数</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">IsDedicatedServer</td>
+						        <td> bool IsDedicatedServer()</td>
+						       <td>效果：如果是个专门服务器则 返回为真<br/>传入参数:无<br>返回值：<br>布尔类型：true 或 false</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">CreateUnitByName</td>
+						        <td>hscript CreateUnitByName( string name, vector origin, bool findOpenSpot, hscript, hscript, int team)</td>
+						        <td>效果：用dota_npc_units.txt的名字创建单位<br/>传入参数:<br>name:名字，origin：初始点，findOpenSpot：是否查找开启点，hscript：未知，hscript：未知，team：队伍<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">CreateHeroForPlayer</td>
+						        <td>hscript CreateHeroForPlayer( string heroName, Player owningPlayer)</td>
+						        <td>效果：用dota_npc_units.txt名字创建英雄，并设为玩家控制的英雄<br/>传入参数:<br>heroName:英雄名字，owningPlayer：拥有玩家<br>返回值：<br>hscript：脚本实体</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">CreateItem</td>
+						        <td>hscript CreateItem( string itemName, Unit owningUnit,Unit unitToGetOrigin)</td>
+						        <td>效果： 创建dota物品<br/>传入参数:<br>itemName:物品名字，owningUnit：拥有单位，unitToGetOrigin：获得单位初始点<br>返回值：<br>hscript：脚本实体</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">CreateItemOnPosition</td>
+						        <td>PhysicalItem  CreateItemOnPosition( vector position )</td>
+						        <td>效果：  在指定地点创建物理物品<br/>传入参数:<br>position:位置<br>返回值：<br>hscript：脚本实体</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">FindClearSpaceForUnit</td>
+						        <td>void FindClearSpaceForUnit(Unit npc, vector origin, bool )</td>
+						        <td>效果：  将一个单位置于为占据的某个位置<br/>传入参数:<br>npc:NPC实体，origin：初始化，待定<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">FindUnitsInRadius</td>
+						        <td>table FindUnitsInRadius( int  targetTeam, vector position,Entity ent, float radius, int targetTypeTeam, inttargetTypeUnit, int x, int y, bool )</td>
+						        <td>效果：在给定范围内寻找具有指定布尔值的单位。第三个参数实体似乎总是空，最后三个似乎是 0，0，false<br/>传入参数:<br>targetTeam:目标队伍，position：目标点，ent：目标实体，radius：半径，targetTypeTeam：目标队伍类型，x：X轴位置，y：Y轴位置，最后一个参数未知<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">PrecacheUnit</td>
+						        <td>void PrecacheUnit( string unitName)</td>
+						        <td>效果： 为一个单位预载所有资源<br/>传入参数:<br>unitName:单位名<br>返回值：无</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">GetFrostyPointsForRound</td>
+						        <td>int GetFrostyPointsForRound( int playerId, int difficulty, int roundNumber)</td>
+						        <td>效果： 获得玩家该回合得分<br/>传入参数:<br>playerId:玩家ID，difficulty：难度，roundNumber：回合编号<br>返回值：待定</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetGoldFrostyPointsForRound</td>
+						        <td>int GetGoldFrostyPointsForRound( int playerId, int difficulty, int roundNumber )</td>
+						        <td>效果：  获得玩家该回合金钱<br/>传入参数:<br>playerId:玩家ID，difficulty：难度，roundNumber：回合编号<br>返回值：待定</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">GetFrostyBoostAmount</td>
+						        <td> float GetFrostyBoostAmount( int playerId, int roundNumber)     </td>
+						        <td>效果：  获得玩家该回合得分增加总量<br/>传入参数:<br>playerId:玩家ID，roundNumber：回合编号<br>返回值：待定</td>
+						    </tr> 
+						   <tr>
+						        <td class="td1">GetGoldFrostyBoostAmount</td>
+						        <td> float GetGoldFrostyBoostAmount( int playerId, int roundNumber) </td>
+						        <td>效果：  获得玩家该回合金钱增加总量<br/>传入参数:<br>playerId:玩家ID，roundNumber：回合编号<br>返回值：待定</td>
+						    </tr>
+						     <tr>
+						        <td class="td1">SendFrostyPointsMessageToGC</td>
+						        <td> void SendFrostyPointsMessageToGC( table data) </td>
+						        <td>效果：发送总得分信息给GC<br/>传入参数:<br>data:表数据<br>返回值：无</td>
+						    </tr>  
+						    <tr>
+						        <td class="td1">SendFrostivusTimeElapsedToGC</td>
+						        <td>void SendFrostivusTimeElapsedToGC()      </td>
+						        <td>效果：发送游戏逝去时间给GC<br/>传入参数:无<br>返回值：无</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">ExecuteOrderFromTable</td>
+						        <td>void ExecuteOrderFromTable( table )</td>
+						        <td>效果：从代码表中发出指令。
+						               <br/>传入参数:<br>table:代码表的结构包括{ int UnitIndex, int OrderType, vector Position, bool Queue, int AbilityIndex, int TargetIndex }
+						        unitindex是发布命令的单位，ordertype是关联的枚举类型，当ordertyoe需要指定位置（移动，施放点目标技能等）
+						               时需要position，当技能应该在当先命令之后执行时使用queue，如果ordertype是技能需要abilityindex，如果ordertype是目标施法技能需要targetindex<br>返回值：无</td>
+						    </tr>
+						</tbody>
+				    </table>
+				</div>
     		</div>
     	</div>
     </div>

@@ -33,7 +33,7 @@ body:before { /* top shadow */
   padding: 1.25% 2.5%;
 }
 .logo a { outline: none; }
-.logo img { margin-top: -1em; margin-left:1em;max-width: 80.9%; max-height: 80.9%; }
+.logo img { margin-top: -1em; margin-left:1em;max-width: 86%; max-height: 86%; }
 .logo span { opacity: 0; float: left;  }
 /* By default it's not affixed in mobile views, so undo that */
 .bs-sidebar.affix {
