@@ -1,6 +1,6 @@
 dota2中文API  
 ====================
-翻译自 ［dota2英文API］(https://developer.valvesoftware.com/wiki/List_of_Dota_2_Script_Functions#AbilityUnitDamageType)
+翻译自[dota2英文API](https://developer.valvesoftware.com/wiki/List_of_Dota_2_Script_Functions#AbilityUnitDamageType)
 
 
 前言 
