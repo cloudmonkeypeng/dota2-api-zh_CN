@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="DOTA2 中文API 翻译自阿哈利姆魔法隐修议会">
+	<title>DOTA2 中文API</title>
+
+	<link rel="shortcut icon" href="img/favicon.ico">
+
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/docs.css">
+    
+    <style type="text/css">
+	table {
+		table-layout: fixed;
+		word-wrap: break-word;
+	}
+
+	td{
+		font-size: 10px;
+	}
+
+	
+	.panel-title a{
+		font-size: 10px;
+	}
+	</style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+<body>
+	
+    <header class="navbar navbar-inverse navbar-static-top" role="banner">
+    	<div class="container">
+    		<div class="navbar-header">
+    			<a href="index.html" class="navbar-brand">DOTA2中文API</a>
+    		</div>
+	    	<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+	    		<ul class="nav navbar-nav navbar-left">
+	    			<li>
+	    				<a href="index.html">函数介绍</a>
+	    			</li>
+	    			<li>
+	    				<a href="constants.html">常量介绍</a>
+	    			</li>
+	    		</ul>
+	    		<ul class="nav navbar-nav navbar-right">
+	    			<li>
+	    				<a href="#">关于</a>
+	    			</li>
+	    		</ul>
+		    </nav>
+		</div>
+	</header>
+
+	<div class="bs-header" id="content">
+      <div class="container">
+      <div class="row">
+      	<div class="col-sm-2 logo">
+          <a href=""><img alt="diagram x head" src="img/logo.png" itemprop="logo"></a>
+        </div>
+        <div class="col-sm-10">
+	        <h2>DOTA2中文API</h2>
+	        <p>1.DOTA2内包含大量的专业术语，身为翻译者并不精通，可能会造成翻译错误，一切以原版为准。
+	        	<br/>2.大多数函数未经测试，翻译表现与实际表现可能有出入。
+	        	<br/>3.有一小部分函数并未翻译，欢迎补充。
+	        </p> 
+         </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="container">
+	    <div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#PickingStates">
+							英雄选择状态(Picking States)
+						</a>
+					</h4>
+				</div>
+				<div id="PickingStates" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        	 <tr>
+								<td class="td1">DOTA_HEROPICK_STATE_NONE</td>
+							    <td>无选择</td>
+							</tr>
+							<tr>
+								<td class="td1">DOTA_HEROPICK_STATE_AP_SELECT</td>
+							    <td>全阵营选择</td>
+							</tr>
+							<tr>
+								<td class="td1">DOTA_HEROPICK_STATE_SD_SELECT</td>
+							    <td>SD模式选择</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_INTRO_SELECT</td>
+							    <td>介绍模式？等待测试，预计为英雄排序？如辅助排序，力量型英雄排序等？</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_RD_SELECT</td>
+							    <td>RD模式选择</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_CM_INTRO</td>
+							    <td>队长介绍模式</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_CM_BAN*</td>
+							    <td>*可用1-10代替，队长BAN人，1-10为BAN的顺序</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_CM_SELECT*</td>
+							    <td>*可用1-10代替，队长选人，1-10为选的顺序</td>
+							</tr>
+							 <tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_CM_PICK</td>
+							    <td>队长模式</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_AR_SELECT</td>
+							    <td>AR模式</td>
+							</tr>
+							 <tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_MO_SELECT</td>
+							    <td>中路模式</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_FH_SELECT</td>
+							    <td>未知模式，等待测试</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_HEROPICK_STATE_COUNT</td>
+							    <td>未知模式，等待测试</td>
+							</tr>
+				        </tbody>
+				        </table>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Teams">
+							队伍(Teams)
+						</a>
+					</h4>
+				</div>
+				<div id="Teams" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+							<tbody>					
+							<tr>
+							    <td class="td1">DOTA_TEAM_GOODGUYS</td>
+							    <td>天辉</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_TEAM_BADGUYS</td>
+							    <td>夜魇</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_TEAM_NEUTRALS</td>
+							    <td>中立阵营</td>
+							</tr>
+							<tr>
+							    <td class="td1">DOTA_TEAM_NOTEAM</td>
+							    <td>无阵营(一说是指刚进如游戏时没有分队的情况，另一说是指观看者广播员所在的组)</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#UnitTargetting">
+							单位目标(Unit Targetting)
+						</a>
+					</h4>
+				</div>
+				<div id="UnitTargetting" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_TEAM_NONE</td>
+						        <td>无队伍单位目标</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_TEAM_FRIENDLY</td>
+						        <td>单位目标为友军</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_TEAM_ENEMY</td>
+						       <td>单位目标为敌军</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_TEAM_CUSTOM</td>
+						        <td>单位目标为普通队伍</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_TEAM_BOTH</td>
+						        <td>单位目标为所有队伍</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_NONE</td>
+						        <td>无单位目标</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_HERO</td>
+						        <td>单位目标为英雄</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_CREEP</td>
+						        <td>单位目标为野怪</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_BUILDING</td>
+						        <td>单位目标位建筑</td>
+						    </tr>
+						     <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_MECHANICAL</td>
+						        <td>单位目标为机械单位</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_COURIER</td>
+						        <td>单位目标为信使</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_OTHER</td>
+						        <td>单位目标为其他</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_TREE</td>
+						        <td>单位目标为树</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_CUSTOM</td>
+						        <td>单位目标为普通</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_BASIC</td>
+						        <td>单位目标为基本</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_ALL</td>
+						        <td>单位目标为所有</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NONE</td>
+						        <td>单位目标为无标识</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_RANGED_ONLY</td>
+						        <td>单位目标为仅在攻击范围内的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_MELEE_ONLY</td>
+						        <td>单位目标为仅在近战范围内的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_DEAD</td>
+						        <td>单位目标为标记为死亡的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES</td>
+						        <td>单位目标为非魔免敌人</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES</td>
+						        <td>单位目标为非魔免友军</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_INVULNERABLE</td>
+						        <td>单位目标为无敌的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE</td>
+						        <td>单位目标为隐身的?待定有待证实</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NO_INVIS</td>
+						        <td>单位目标为非隐身的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS</td>
+						        <td>单位目标为非远古的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED</td>
+						        <td>单位目标为玩家控制的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED</td>
+						        <td>单位目标为不可控制的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED</td>
+						        <td>单位目标为非召唤的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS</td>
+						        <td>单位目标为非幻象的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE</td>
+						        <td>单位目标为非物免的（攻击免疫，个人理解为物免，具体看测试结果）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_MANA_ONLY</td>
+						        <td>单位目标为魔法</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_CHECK_DISABLE_HELP</td>
+						        <td>单位目标为无法帮助的</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO</td>
+						        <td>单位目标为非在野英雄（待定...怎么感觉到了三国的气息）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD</td>
+						        <td>单位目标为不在世界内的（比如中黑鸟T以后的英雄）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_UNIT_TARGET_FLAG_NOT_NIGHTMARED</td>
+						        <td>单位目标为非被催眠单位</td>
+						    </tr>
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#FindTypes">
+							寻找类型(Find Types)
+						</a>
+					</h4>
+				</div>
+				<div id="FindTypes" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+					    <tbody>
+					     <tr>
+					        <td class="td1">FIND_UNITS_EVERYWHERE</td>
+					        <td>在所有范围内查找单位</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FIND_CLOSEST</td>
+					        <td>最近的那个</td>
+					    </tr>
+					     <tr>
+					        <td class="td1">FIND_FARTHEST</td>
+					        <td>最远的那个</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FIND_ANY_ORDER</td>
+					        <td>通过一些指令查找</td>
+					    </tr>
+					    </tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#QuestTextReplacement">
+							任务文本覆盖(Quest Text Replacement )
+						</a>
+					</h4>
+				</div>
+				<div id="QuestTextReplacement" class="panel-collapse collapse">
+					<div class="panel-body">
+					<table class="table table-striped table-bordered table-condensed">
+					    <tbody>
+					    	<tr>
+						        <td class="td1">QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE</td>
+						        <td>替换目前任务文本信息</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">QUEST_TEXT_REPLACE_VALUE_TARGET_VALUE</td>
+						        <td>替换任务文本的目标信息</td>
+						    </tr>
+						     <tr>
+						        <td class="td1">QUEST_TEXT_REPLACE_VALUE_ROUND</td>
+						        <td>替换任务文本的回合信息（猜测是时间）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">QUEST_TEXT_REPLACE_VALUE_REWARD</td>
+						        <td>替换任务文本信息的报酬信息</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">QUEST_NUM_TEXT_REPLACE_VALUES</td>
+						        <td>替换任务文本信息的报编号信息</td>
+						    </tr>
+					    </tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#ParticleAttachTypes">
+							粒子附加类型(Particle Attach Types)
+						</a>
+					</h4>
+				</div>
+				<div id="ParticleAttachTypes" class="panel-collapse collapse">
+					<div class="panel-body">
+					<table class="table table-striped table-bordered table-condensed">
+					    <tbody>
+					    <tr>
+					        <td class="td1">PATTACH_ABSORIGIN</td>
+					        <td>附着于绝对原点</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_ABSORIGIN_FOLLOW</td>
+					        <td>附着于绝对原点并且跟随</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_CUSTOMORIGIN</td>
+					        <td>附着于特定的绝对原点</td>
+					    </tr>
+					     <tr>
+					        <td class="td1">PATTACH_CUSTOMORIGIN_FOLLOW</td>
+					        <td>附着于特定的绝对原点并且跟随</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_POINT</td>
+					        <td>附着于点</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_POINT_FOLLOW</td>
+					        <td>附着于点并且跟随</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_EYES_FOLLOW</td>
+					        <td>附着于眼部</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_OVERHEAD_FOLLOW</td>
+					        <td>附着于头部上方并且跟随（举个例子天使JJ的头顶光环）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_WORLDORIGIN</td>
+					        <td>附着世界的原点(叼炸天，估计是地图中心点。。。。。)</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_ROOTBONE_FOLLOW</td>
+					        <td>附着脚底并且跟随（举个例子把天使JJ的头顶光环放到脚下........）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_POINT_FOLLOW_SUBSTEPPED</td>
+					        <td>附着点并且潜行跟随（不懂等待测试）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">PATTACH_RENDERORIGIN_FOLLOW</td>
+					        <td>附着渲染原点并且跟随（不懂等待测试）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">MAX_PATTACH_TYPES</td>
+					        <td>最大附着点类型（不懂等待测试）</td>
+					    </tr>
+					    </tbody>
+					</table>						
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#InventoryConstants">
+							物品栏常量(Inventory Constants)
+						</a>
+					</h4>
+				</div>
+				<div id="InventoryConstants" class="panel-collapse collapse">
+					<div class="panel-body">
+					<table class="table table-striped table-bordered table-condensed">
+					    <tbody>
+					    <tr>
+					        <td class="td1">DOTA_ITEM_MAX</td>
+					        <td>最大物品数</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_ITEM_INVENTORY_SIZE</td>
+					        <td>物品库存数</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_ITEM_STASH_SIZE</td>
+					        <td>物品存放数</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_ITEM_STASH_MIN</td>
+					        <td>物品最小存放数</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_ITEM_STASH_MAX</td>
+					        <td>物品最大存放数</td>
+					    </tr>
+					    </tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#ItemTypes">
+							物品类型(Item Types)
+						</a>
+					</h4>
+				</div>
+				<div id="ItemTypes" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+					    <tbody>
+					    <tr>
+					        <td class="td1">DOTA_ITEM_TRANSIENT_ITEM</td>
+					        <td>不懂可能是像辉耀，金箍棒这样可以随时开关的吧</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_ITEM_TRANSIENT_RECIPE</td>
+					        <td>消费品（如药膏）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_ITEM_TRANSIENT_CAST_ITEM</td>
+					        <td>物品带技能（比如红杖之流）</td>
+					    </tr>
+					    </tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#InventoryAccessFlags">
+							物品栏读取布尔值(Inventory Access Flags)
+						</a>
+					</h4>
+				</div>
+				<div id="InventoryAccessFlags" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+						    <tbody>
+						    <tr>
+						        <td class="td1">DOTA_INVENTORY_ALLOW_NONE</td>
+						        <td>不准许物品栏</td>
+						    </tr>
+
+						    <tr>
+						        <td class="td1">DOTA_INVENTORY_ALLOW_MAIN</td>
+						        <td>准许主物品栏（相当于英雄的物品栏）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_INVENTORY_ALLOW_STASH</td>
+						        <td>准许存储物品（类似圈子的物品栏）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_INVENTORY_ALLOW_DROP_ON_GROUND</td>
+						        <td>准许扔到地上</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_INVENTORY_ALLOW_DROP_AT_FOUNTAIN</td>
+						        <td>准许扔到泉水附近</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_INVENTORY_ALL_ACCESS</td>
+						        <td>准许任何人使用（类似于鸟的物品栏）</td>
+						    </tr>
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#GamerulesState">
+							游戏规则状态(Gamerules State)
+						</a>
+					</h4>
+				</div>
+				<div id="GamerulesState" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+						    <tbody>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_INIT</td>
+						        <td>游戏规则初始化</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD</td>
+						        <td>玩家等待载入</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_HERO_SELECTION</td>
+						        <td>英雄选择</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_STRATEGY_TIME</td>
+						        <td>策略时间？（应该是指队长模式里的备用时间吧,带测试）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_PRE_GAME</td>
+						        <td>游戏开始前</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_GAME_IN_PROGRESS</td>
+						        <td>进行中的游戏</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_POST_GAME</td>
+						        <td>游戏提交</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_DISCONNECT</td>
+						        <td>失去连接</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GAMERULES_STATE_LAST</td>
+						        <td>游戏结束？待测试</td>
+						    </tr>
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Lobby">
+							游戏大厅/GC队伍(Lobby/GC Teams )
+						</a>
+					</h4>
+				</div>
+				<div id="Lobby" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+						    <tbody>
+						    <tr>
+						        <td class="td1">DOTA_GC_TEAM_GOOD_GUYS</td>
+						        <td>天辉</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GC_TEAM_BAD_GUYS</td>
+						        <td>夜魇</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GC_TEAM_BROADCASTER</td>
+						        <td>广播员</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GC_TEAM_SPECTATOR</td>
+						        <td>观众</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GC_TEAM_PLAYER_POOL</td>
+						        <td>玩家池</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_GC_TEAM_NOTEAM</td>
+						        <td>无队伍</td>
+						    </tr>
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#GoldModifiers">
+							金钱修改器(Gold Modifiers)
+						</a>
+					</h4>
+				</div>
+				<div id="GoldModifiers" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+						    <tbody>
+						    <tr>
+						        <td class="td1">DOTA_ModifyGold_Unspecified</td>
+						        <td>非指定的金钱修改</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_ModifyGold_Death</td>
+						        <td>死亡金钱修改</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_ModifyGold_Buyback</td>
+						        <td>回购金钱修改（特别注意这个不是购买）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_ModifyGold_PurchaseConsumable</td>
+						        <td>购买消耗品金钱修改（如买药膏等）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_ModifyGold_PurchaseItem</td>
+						        <td>购买物品金钱修改（如树枝等）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_ModifyGold_AbandonedRedistribute</td>
+						        <td>废弃后重新非配金钱修改（功能待定）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_ModifyGold_SellItem</td>
+						        <td>卖出物品金钱修改</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">DOTA_ModifyGold_AbilityCost</td>
+						        <td>技能花费金钱修改（点金手）</td>
+						    </tr>
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#UnitOrderTypes">
+							单位指令类型(Unit Order Types)
+						</a>
+					</h4>
+				</div>
+				<div id="UnitOrderTypes" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+					    <tbody>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_NONE</td>
+					        <td>无指令</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_MOVE_TO_POSITION</td>
+					        <td>移动到某个位置，无视敌友和被攻击</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_MOVE_TO_TARGET</td>
+					        <td>移动到某个目标（目标可以是静止的，也可以是移动的），无视敌友和被攻击，移动到目标处也不攻击</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_ATTACK_MOVE</td>
+					        <td>移动到某个位置，遇敌或被攻击会反击，敌人消失后（死亡或者逃跑）会继续移动到之前的命令位置</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_ATTACK_TARGET</td>
+					        <td>攻击目标</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_CAST_POSITION</td>
+					        <td>抛投到某点（如白虎一跃）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_CAST_TARGET</td>
+					        <td>抛投到某目标（如山岭一扔）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_CAST_TARGET_TREE</td>
+					        <td>抛投到某目标为树（具体待定）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_CAST_NO_TARGET</td>
+					        <td>无目标抛投（如船长的水柱）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_CAST_TOGGLE</td>
+					        <td>抛投钩子（如屠夫，发条，具体待定）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_HOLD_POSITION</td>
+					        <td>守护某个点（如敌人出现在预警范围内会攻击，敌人死亡或消失后会回到该点继续守护）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_TRAIN_ABILITY</td>
+					        <td>学习技能</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_DROP_ITEM</td>
+					        <td>扔掉物品</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_GIVE_ITEM</td>
+					        <td>给予物品</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_PICKUP_ITEM</td>
+					        <td>捡起物品</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_PICKUP_RUNE</td>
+					        <td>捡起神符</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_PURCHASE_ITEM</td>
+					        <td>购买物品</td>
+					    </tr>
+					     <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_SELL_ITEM</td>
+					        <td>出售物品</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_DISASSEMBLE_ITEM</td>
+					        <td>拆解物品（比如拆秘法鞋）</td>
+					    </tr>
+					     <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_MOVE_ITEM</td>
+					        <td>移动物品（应该是指物品栏内的物品位置改变）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO</td>
+					        <td>自动触发（如骨弓的火箭，待定）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_STOP</td>
+					        <td>停止（如果有些人打钱的时候喜欢狂按S来补兵，S就是停止）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_TAUNT</td>
+					        <td>嘲讽（斧王的E差不多吧，就是强迫单位攻击目标）</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_BUYBACK</td>
+					        <td>回购</td>
+					    </tr>
+					     <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_GLYPH</td>
+					        <td>纹理？待定</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_EJECT_ITEM_FROM_STASH</td>
+					        <td>爆出物品（如著名的肉山盾）</td>
+					    </tr>
+					     <tr>
+					        <td class="td1">DOTA_UNIT_ORDER_CAST_RUNE</td>
+					        <td>使用神符</td>
+					    </tr>
+					    </tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#ItemSharingTypes">
+							物品共享类型(Item Sharing Types)
+						</a>
+					</h4>
+				</div>
+				<div id="ItemSharingTypes" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+						    <tbody>
+						    <tr>
+						        <td class="td1">ITEM_FULLY_SHAREABLE</td>
+						        <td>全部共享（比如掉落的圣剑）</td>
+						    </tr>
+						    <tr>
+						        <td class="td1">ITEM_PARTIALLY_SHAREABLE</td>
+						        <td>部分共享</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">ITEM_NOT_SHAREABLE</td>
+						        <td>不共享</td>
+						    </tr> 
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#MusicStatus">
+							音乐状态(Music Status)
+						</a>
+					</h4>
+				</div>
+				<div id="MusicStatus" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+						    <tbody>
+						    <tr>
+						        <td class="td1">DOTA_MUSIC_STATUS_NONE</td>
+						        <td>无音乐</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">DOTA_MUSIC_STATUS_EXPLORATION</td>
+						        <td>探索音乐</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">DOTA_MUSIC_STATUS_BATTLE</td>
+						        <td>战斗音乐</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">DOTA_MUSIC_STATUS_PRE_GAME_EXPLORATION</td>
+						        <td>游戏前探索音乐</td>
+						    </tr> 
+						    <tr>
+						        <td class="td1">DOTA_MUSIC_STATUS_DEAD</td>
+						        <td>死亡音乐</td>
+						    </tr>
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#ConVarFlags">
+							非变量标示(ConVar Flags) （特别注明：这些常量都未经过验证）
+						</a>
+					</h4>
+				</div>
+				<div id="ConVarFlags" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+					    <tbody>
+					    <tr>
+					        <td class="td1">FCVAR_UNREGISTERED</td>
+					        <td>未注册的</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_DEVELOPMENTONLY</td>
+					        <td>仅为发展的</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_HIDDEN</td>
+					        <td>仅为发展的</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_PROTECTED</td>
+					        <td>受保护的</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_SPONLY</td>
+					        <td>掠夺？</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_ARCHIVE</td>
+					        <td>存档</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_ARCHIVE</td>
+					        <td>通知</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_USERINFO</td>
+					        <td>用户信息</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_PRINTABLEONLY</td>
+					        <td>只可打印</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_UNLOGGED</td>
+					        <td>未登录的</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_NEVER_AS_STRING</td>
+					        <td>不是字符串</td>
+					    </tr>
+					     <tr>
+					        <td class="td1">FCVAR_REPLICATED</td>
+					        <td>重复的</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_CHEAT</td>
+					        <td>作弊</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_SS</td>
+					        <td>标准规格</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_DEMO</td>
+					        <td>演示</td>
+					    </tr>
+					     <tr>
+					        <td class="td1">FCVAR_DONTRECORD</td>
+					        <td>不记录的</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_NOT_CONNECTED</td>
+					        <td>没有连接的</td>
+					    </tr>
+					    <tr>
+					        <td class="td1">FCVAR_VCONSOLE_SET_FOCUS</td>
+					        <td>设置控制台焦点</td>
+					    </tr>
+					    </tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/application.js"></script>
+	<script type="text/javascript">
+
+	$(function(){
+    	$('.collapse').collapse({
+    		toggle: false
+    	});
+	});
+	</script>
+</body>
+</html>
