@@ -38,49 +38,29 @@
     
 </head>
 <body>
-	
-    <header class="navbar navbar-inverse navbar-static-top" role="banner">
-    	<div class="container">
-    		<div class="navbar-header">
-    			<a href="http://www.dota2rpg.com/" class="navbar-brand">DOTA2RPG论坛</a>
-    		</div>
-	    	<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-	    		<ul class="nav navbar-nav navbar-left">
-	    			<li>
-	    				<a href="index.html">函数介绍</a>
-	    			</li>
-	    			<li>
-	    				<a href="constants.html">常量介绍</a>
-	    			</li>
-	    		</ul>
-	    		<ul class="nav navbar-nav navbar-right">
-	    			<li>
-	    				<a href="https://developer.valvesoftware.com/wiki/List_of_Dota_2_Script_Functions#CDOTA_BaseNPC_Building">英文API</a>
-	    			</li>
-	    			<li>
-	    				<a href="#">关于</a>
-	    			</li>
-	    		</ul>
-		    </nav>
-		</div>
-	</header>
+
+	<div id="navigation">
+	</div>
 
 	<div class="bs-header" id="content">
-      <div class="container">
-      <div class="row">
-      	<div class="col-sm-2 logo">
-          <a href=""><img alt="diagram x head" src="img/logo.png" itemprop="logo"></a>
-        </div>
-        <div class="col-sm-10">
-	        <h2>DOTA2中文API</h2>
-	        <p>1.DOTA2内包含大量的专业术语，身为翻译者并不精通，可能会造成翻译错误，一切以原版为准。
-	        	<br/>2.大多数函数未经测试，翻译表现与实际表现可能有出入。
-	        	<br/>3.有一小部分函数并未翻译，欢迎补充。
-	        </p> 
-         </div>
-      </div>
-      </div>
-    </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2 logo">
+					<a href="http://www.dota2rpg.com/"><img alt="diagram x head" src="img/AMHC-LOGO.png" itemprop="logo"></a>
+				</div>
+				<div class="col-sm-10">
+					<h5>DOTA2中文API</h5>
+			        <p>
+			        	1.翻译自<a href=" https://developer.valvesoftware.com/wiki/List_of_Dota_2_Script_Functions ">DOTA2英文API</a>
+			        	<br/>2.DOTA2内包含大量的专业术语，身为翻译者并不精通，可能会造成翻译错误，一切以原版为准。
+			        	<br/>3.大多数函数未经测试，翻译表现与实际表现可能有出入。
+			        	<br/>4.有一小部分函数并未翻译，欢迎补充。
+			        	<br/>5.对本API有补充或者修改的内容，请发送Email至margaret4@126.com，cloudmonkeypeng@live.com
+			        </p>
+			    </div>
+			</div>
+		</div>
+	</div>
 
     <div class="container">
 	    <div class="panel-group" id="accordion">
@@ -1047,5 +1027,11 @@
     	});
 	});
 	</script>
+	<script type="text/javascript">
+	    $(document).ready(function(){
+	    	htmlobj=$.ajax({url:"navigation.html",async:false});
+	    	$("#navigation").html(htmlobj.responseText);
+	    });
+    </script>
 </body>
 </html>
