@@ -64,6 +64,585 @@
 
     <div class="container">
 	    <div class="panel-group" id="accordion">
+	    	<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Actions">
+							动作体(Actions)
+						</a>
+					</h4>
+				</div>
+				<div id="Actions" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        	<thead>
+				        		<tr>
+				        			<th>Modifier Name</th>
+				        			<th>Effect</th>
+				        			<th>Effect(中文对照)</th>
+				        			<th>备注</th>
+				        		</tr>
+				        	</thead>
+				        	<tbody>
+				        		<tr>
+									<td>MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE</td>
+									<td>Modifies damage as added damage.   </td>
+									<td>修改附加攻击力</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT</td>
+									<td>Modifies damage as added damage, not calculated into critical hits.</td>
+									<td>以增加伤害的方式修改伤害值，不计入暴击计算</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE</td>
+									<td>Modifies damage as base damage.</td>
+									<td>修改基础攻击力</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL</td>
+									<td>Physical damage dealt after the normal attack. [Needs verification]</td>
+									<td>修改在普通攻击后计算的物理伤害[还需要确认]</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL</td>
+									<td>Magical damage dealt after the normal attack. [Needs verification]</td>
+									<td>修改在普通攻击后计算的魔法伤害[还需要确认]</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_COMPOSITE</td>
+									<td>Composite damage dealt after the normal attack. [Needs verification]</td>
+									<td>修改在普通攻击后计算的混合伤害[还需要确认]</td>
+									<td>"複合傷害(亦稱混合傷害)是可被魔法抗性減弱的物理傷害。如兽王的飞斧"</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE</td>
+									<td>Pure damage dealt after the normal attack. [Needs verification]</td>
+									<td>修改在普通攻击后计算的神圣伤害[还需要确认]</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PROCATTACK_FEEDBACK</td>
+									<td>Mana burn. [Needs verification]</td>
+									<td>法力燃烧[还需要确认]</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_POST_ATTACK</td>
+									<td>?</td>
+									<td></td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_INVISIBILITY_LEVEL</td>
+									<td> ? 隐身的等级？</td>
+									<td></td>
+									<td>"[推测]隐身等级可能是可被探测
+								的隐身级别，小鱼人的隐身层级最高，无法探测。
+								诡计之雾层级次之，真眼无效。守卫再次一级，显隐之尘无法探测守卫。"</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PERSISTENT_INVISIBILITY</td>
+									<td></td>
+									<td></td>
+									<td>[猜测]进入隐身的时间?</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT</td>
+									<td>Constant movespeed increase</td>
+									<td>移动速度获得增加</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE</td>
+									<td>Sets the base movespeed.</td>
+									<td>设定基础移动速度</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE</td>
+									<td>Increased movespeed that is percentage based. Does not stack with itself.</td>
+									<td>"获得移动速度加成，这种移动速度不是累加的，而是百分比增加的。
+								不同于夜叉，完全是人物本身的增加，比如小精灵的链接，获得20%
+								的移动速度加成"</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE</td>
+									<td>Increased movespeed that is percentage based. Item version, does not stack.</td>
+									<td>"获得移动速度加成，这种移动速度不是累加的，而是百分比增加的。
+								如夜叉增加15%的移动速度"</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE</td>
+									<td>Constant movespeed increase. Item version, does not stack.</td>
+									<td>"获得移动速度加成，这种移动速度不是累加的，而是根据设定的数值
+								来增加的。"</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE</td>
+									<td></td>
+									<td></td>
+									<td>"[猜测]绝对移动速度
+								（就是说设置多少就是多少
+								而不是加和减）"</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MOVESPEED_LIMIT</td>
+									<td></td>
+									<td></td>
+									<td>[猜测]移动速度限制</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MOVESPEED_MAX</td>
+									<td></td>
+									<td></td>
+									<td>[猜测]最大移动速度 </td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT</td>
+									<td>Constant attack speed increase.</td>
+									<td>攻击速度获得增加</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_POWER_TREADS</td>
+									<td>Power treads version; does not stack. [Needs verification]</td>
+									<td>"专门为假腿定制的指令，可以修改假腿带来的攻速提升。
+								不可堆叠[需要验证]"</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_SECONDARY</td>
+									<td></td>
+									<td>"专门为某不确定物品定制的指令，可以修改某不确定物品带来的攻速
+								提升"</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT</td>
+									<td>Sets the Base Attack Time.</td>
+									<td>设定基础攻击间隔</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE</td>
+									<td>Outgoing auto-attack damage.</td>
+									<td>降低自动攻击时造成的伤害</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE_ILLUSION</td>
+									<td>Outgoing auto-attack damage for illusions.</td>
+									<td>降低幻象自动攻击时造成的伤害</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE</td>
+									<td>Modifies the base damage dealt.</td>
+									<td>修改基础攻击伤害</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE</td>
+									<td>Modifies Incoming damage modified by a percentage.</td>
+									<td>按百分比提升攻击力</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE</td>
+									<td>Modifies Incoming physical damage by a percentage.</td>
+									<td>按百分比提升物理攻击力</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT</td>
+									<td>Modifies incoming damage from spells by a percentage.</td>
+									<td>修改按百分比提升攻击力的技能</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_EVASION_CONSTANT</td>
+									<td>Evasion.</td>
+									<td>闪避</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_AVOID_CONSTANT</td>
+									<td>Faceless Void's Backtrack.</td>
+									<td>虚空假面的闪避</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_AVOID_SPELL</td>
+									<td>Same as above, but for spells. [Needs verification]</td>
+									<td>同上，不过是对法术[需要验证]</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MISS_PERCENTAGE</td>
+									<td>Increased chance to miss.</td>
+									<td>增加miss的几率</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS</td>
+									<td>Physical armor bonus.</td>
+									<td>增加护甲</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_ILLUSIONS</td>
+									<td>Physical armor that affects illusions. [Needs verification]</td>
+									<td>增加幻象的护甲</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE</td>
+									<td></td>
+									<td>"[猜测]增加护甲，不可叠加。
+								也许是强袭、西瓦、影魔之类的无法叠加的护甲修改"</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE</td>
+									<td>Buckler effect?</td>
+									<td>改变圆盾减伤的效果</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS</td>
+									<td>Magical resistance, does not affect pure damage, stacks.</td>
+									<td>魔法抗性，对神圣伤害无效，可以累加</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MAGICAL_RESISTANCE_ITEM_UNIQUE</td>
+									<td>Magical resistance, does not affect pure damage, does not stack.</td>
+									<td>魔法抗性，对神圣伤害无效，不可以累加</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE</td>
+									<td>Pugna's Decripify, affects magical resistance, does not stack.</td>
+									<td>骨法的衰老，影响魔法抗性，不可累加</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_BASE_MANA_REGEN</td>
+									<td>Modifies base mana regen, affected by percentage mana regen.</td>
+									<td>修改基础魔法回复数值，对百分比回魔有影响</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MANA_REGEN_CONSTANT</td>
+									<td>Modifies mana regen, not affected by percentage mana regen.</td>
+									<td>修改基础魔法回复数值，对百分比回魔没有影响</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MANA_REGEN_CONSTANT_UNIQUE</td>
+									<td>Modifies mana regen, not affected by percentage mana regen, does not stack. [Needs verification]</td>
+									<td>"修改基础魔法回复数值，对百分比回魔没有影响，且
+								不可累积"</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE</td>
+									<td>Modifies base mana regen.</td>
+									<td>修改基础魔法回复数值</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE</td>
+									<td>Modifies all mana regen.</td>
+									<td>修改所有魔法回复数值</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT</td>
+									<td>Constant health regeneration.</td>
+									<td>固定的生命回复数值</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE</td>
+									<td>Health regen based on the affected object's maximum health</td>
+									<td>根据装备带来的最大血量所产生的血量回复数值</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_HEALTH_BONUS</td>
+									<td>Modifies current health. [Needs verification]</td>
+									<td>修改目前血量</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MANA_BONUS</td>
+									<td>Modifies current mana. [Needs verification]</td>
+									<td>修改目前魔量</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_EXTRA_STRENGTH_BONUS</td>
+									<td>Modifies strength stat.</td>
+									<td>修改升级获得的力量</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS</td>
+									<td>Modifies total health. [Needs verification]</td>
+									<td>修改总血量</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_EXTRA_MANA_BONUS</td>
+									<td>Modifies total mana. [Needs verification]</td>
+									<td>修改总魔量</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_STATS_STRENGTH_BONUS</td>
+									<td>Modifies Strength stat.</td>
+									<td>修改初始力量</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_STATS_AGILITY_BONUS</td>
+									<td>Modifies Agility stat.</td>
+									<td>修改初始敏捷</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_STATS_INTELLECT_BONUS</td>
+									<td>Modifies Intelligence stat.</td>
+									<td>修改初始智力</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_ATTACK_RANGE_BONUS</td>
+									<td>Modifies attack range.</td>
+									<td>修改攻击范围</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_REINCARNATION</td>
+									<td>Aegis or Wraith King ult? [Needs verification]</td>
+									<td>不朽之守护或者是骷髅王的大招【还需确认】</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_RESPAWNTIME</td>
+									<td>Modifies respawn time or sets it? [Needs verification]</td>
+									<td>修改重生时间</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_DEATHGOLDCOST</td>
+									<td>Modifies gold lost from death.</td>
+									<td>修改死亡损失的金钱</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE</td>
+									<td>Critical power.</td>
+									<td></td>
+									<td>[猜测]致命一击或相关</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK_UNAVOIDABLE_PRE_ARMOR</td>
+									<td>Damage block for auto-attacks.</td>
+									<td>对于自动攻击的伤害减免</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK</td>
+									<td>Blocks damage from all sources.</td>
+									<td>减免所有来源的伤害</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_OVERRIDE_ANIMATION</td>
+									<td></td>
+									<td>"[猜测]覆盖动画，疑似强制播放动画，比如斧王的反击螺旋和剑圣的剑刃风暴"</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT</td>
+									<td></td>
+									<td>[猜测]覆盖动画_重，疑似强制播放动画，比如斧王的反击螺旋和剑圣的剑刃风暴</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE</td>
+									<td>Changes the rate an animation is played (does it affect cast point times?)</td>
+									<td>？存疑。影响动画播放速度(会影响施法时间点[施法前摇]吗?)</td>
+									<td>动画，比如斧王的反击螺旋和剑圣的剑刃风暴</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_ABSORB_SPELL</td>
+									<td></td>
+									<td></td>
+									<td>"[猜测]疑似生命魔法偷取或者
+								就是拉比克、末日使者的偷取野怪技能"</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_DISABLE_AUTOATTACK</td>
+									<td>Disarm (Heaven's Halberd).</td>
+									<td>缴械(天堂之戟)</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_BONUS_DAY_VISION</td>
+									<td>Modified vision during Daytime, constant.</td>
+									<td>修改白天的视野距离</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_BONUS_NIGHT_VISION</td>
+									<td>Modified vision during Nighttime, constant.</td>
+									<td>修改夜间的视野距离</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_BONUS_VISION_PERCENTAGE</td>
+									<td>Modifies vision range by a percentage.</td>
+									<td>按百分比修改视野距离</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MIN_HEALTH</td>
+									<td>Cannot drop below this health amount; EXECUTE still kills.</td>
+									<td>血量在设定值以下是不能杀死（斧王的斩杀依然有效）</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL</td>
+									<td>All physical damage is negated.</td>
+									<td>所有物理攻击无效</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL</td>
+									<td>All magical damage is negated.</td>
+									<td>所有魔法攻击无效</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE</td>
+									<td>All pure damage is negated.</td>
+									<td>所有神圣伤害无效</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_IS_ILLUSION</td>
+									<td>Is the unit an illusion?</td>
+									<td>是否为某个单位的幻象？</td>
+									<td>？此处存疑[是单位的一个幻象？]</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE</td>
+									<td>Modifies turn rate by a percentage</td>
+									<td>百分比修改转向速度</td>
+									<td>？此处存疑[按百分比修正转向速率？]</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_DISABLE_HEALING</td>
+									<td></td>
+									<td>Stops health from going up (think Ice Blast).</td>
+									<td>阻止血量恢复 如冰晶爆轰</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_TOOLTIP</td>
+									<td>Can be anything, used in Armlet for health loss.</td>
+									<td>可被用于任何提示， 比如臂章的血量移除</td>
+									<td></td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MODEL_CHANGE</td>
+									<td>Sets the model.</td>
+									<td>设定模型</td>
+									<td>[猜测]可能用于变身或饰品</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_MODEL_SCALE</td>
+									<td>Scales the model..</td>
+									<td>修正模型大小</td>
+									<td>[猜测]BKB？小小的大招？</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_IS_SCEPTER</td>
+									<td></td>
+									<td></td>
+									<td>[猜测]单位是否装备了阿哈利姆神杖</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS</td>
+									<td></td>
+									<td></td>
+									<td>[猜测]动作修改，发动致命一击就播放另外一个攻击动作？</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND</td>
+									<td></td>
+									<td></td>
+									<td>"[猜测]音效修改，可能是覆盖普通攻击音效。类似隐刺的背刺音效，军团被动的音效等等
+								"</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_LIFETIME_FRACTION</td>
+									<td></td>
+									<td></td>
+									<td>[猜测]生命计时器相关内容？</td>
+								</tr><tr>
+									<td>MODIFIER_PROPERTY_PROVIDES_FOW_POSITION</td>
+									<td></td>
+									<td></td>
+									<td>[猜测???]高地打低地？</td>
+								</tr>			        	
+							</tbody>
+				        </tbody>
+				        </table>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#Modifiers">
+							修改器(Modifiers)
+						</a>
+					</h4>
+				</div>
+				<div id="Modifiers" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table table-striped table-bordered table-condensed">
+				        <tbody>
+				        	<thead>
+				        		<tr>
+				        			<th>Modifier Name</th>
+				        			<th>Effect</th>
+				        			<th>Effect(中文对照)</th>
+				        		</tr>
+				        	</thead>
+				        	<tbody>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_HIDDEN</td>
+									<td>This ability can be owned by a unit but cannot be casted and it won't show up in the HUD.</td>
+									<td>这个技能可以被一个单位拥有但是不能释放也不会显示在hud上</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_PASSIVE</td>
+									<td>A passive ability. Cannot be casted.</td>
+									<td>一个被动技能，不能主动释放</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_NO_TARGET</td>
+									<td>Doesn't need a target to be cast, ability fires off as soon as the button is pressed.</td>
+									<td>不需要选定目标，按下按钮立即释放</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_UNIT_TARGET</td>
+									<td>This ability needs a target to be casted on.</td>
+									<td>这个技能需要一个目标才能施放</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_POINT</td>
+									<td>This ability can be cast anywhere the mouse cursor is.</td>
+									<td>这个技能可以在鼠标所指的任何目标释放 </td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_AOE</td>
+									<td>This ability is similar the above one but targets an area instead of a single point.</td>
+									<td>这个技能可以在鼠标所指的任何区域释放 </td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE</td>
+									<td>This ability can be casted but cannot be learned. Used for temporary or innate spells. Example: Spectre's Reality.</td>
+									<td>"这个技能可以释放但是不可以升级或是学习，是一个
+								先天的技能，比如说 幽鬼降临"</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_CHANNELLED</td>
+									<td>This abillity is channelled. If the user moves or is silenced the ability is interrupted.</td>
+									<td>这个技能需要持续施法，如果使用者移动或者被沉默技能将被中断。</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_ITEM</td>
+									<td>This ability is tied up to an item.</td>
+									<td>这个技能绑定在一个物品。（存疑？）</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_TOGGLE</td>
+									<td>This ability can be insta-toggled. Example: Medusa's Mana Shield.</td>
+									<td>这个技能可以开启\关闭切换。比如说 美杜莎的法力护盾</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_DIRECTIONAL</td>
+									<td>This ability has a direction from the hero.</td>
+									<td>这个技能会判断英雄的面朝方向。比如龙骑的喷火，船长的幽灵船</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_IMMEDIATE</td>
+									<td>This ability does not interrupt other abilities like channeled spells and invisibility.</td>
+									<td>这个技能不会中断其他的技能，比如持续施法和隐身。</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES</td>
+									<td>This ability is disabled by roots like Spirit Bear's Entangle.</td>
+									<td>"这个技能在被缠绕时不能使用。比如被熊灵的缠绕、被小娜迦网住。"</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING</td>
+									<td>This ability ignored backswing.</td>
+									<td>这个技能无视施法后摇</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK</td>
+									<td>Do not resume auto-attacking after this ability is used.</td>
+									<td>使用这个技能后会关闭自动攻击</td>
+								</tr>
+								<tr>
+									<td>DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL</td>
+									<td></td>
+									<td>"(编者注：原文没写，估计此技能不会打断持续施法，比如巫医的医疗、屠夫的腐烂、TS的大招)"</td>
+								</tr>
+							</tbody>
+				        </tbody>
+				        </table>
+					</div>
+				</div>
+			</div>
+
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
