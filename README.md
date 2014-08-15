@@ -1,3 +1,9 @@
+重要信息
+====================
+dota2地图编辑器开始测试版本，本API大部分功能无效，建议不要作为参考。
+请转至：
+https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools:zh-cn
+
 dota2中文API  
 ====================
 翻译自[dota2英文API](https://developer.valvesoftware.com/wiki/List_of_Dota_2_Script_Functions#AbilityUnitDamageType)
